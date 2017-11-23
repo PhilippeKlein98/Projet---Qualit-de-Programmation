@@ -3,7 +3,7 @@ Gestion des UE
 
 Bonjour, je suis ici pour vous dire que ce projet se déroule bien et ne va absolument pas foirer !
 
-**Sujet du projet : gestion des maquettes des formations universitaires
+Sujet du projet : gestion des maquettes des formations universitaires
 
 Le but du projet est de réaliser une application permettant de gérer les maquettes des formations
 universitaires.
