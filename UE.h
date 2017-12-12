@@ -5,12 +5,13 @@
 class UE
 {
     public:
-        UE();
+        UE(int dETCS, bool estACHoix = false);
+        virtual ~UE() = default;
         virtual std::string code() const = 0 ;
         virtual int coef() const = 0 ;
-        virtual int ECTS() const = 0 ;
+        int ECTS() const = 0 ;
         virtual std::string intitule() const = 0 ;
-        virtual bool estAChoix() const = 0 ;
+        bool estAChoix() const = 0 ;
         virtual int nbCM() const = 0 ;
         virtual int nbTD() const = 0 ;
         virtual int nbTP() const = 0 ;
@@ -20,6 +21,7 @@ class UE
 
     private:
         bool d_estAChoix ;
+        int d_ETCS
 };
 
 #endif // UE_H
