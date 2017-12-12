@@ -1,29 +1,29 @@
-#ifndef ECUE_H
-#define ECUE_H
+#ifndef UESIMPLE_H
+#define UESIMPLE_H
 
 #include <iostream>
 
 #include "UE.h"
 class matiere;
 
-class ECUE: public UE
+class UEsimple: public UE
 {
     public:
-        ECUE();
+        UEsimple();
         virtual std::string code() const ;
-        virtual int coef() const ;
+        virtual int coefficient() const ;
         virtual int ECTS() const ;
         virtual std::string intitule() const ;
         virtual bool estAChoix() const ;
-        virtual int nbCM() const ;
-        virtual int nbTD() const ;
-        virtual int nbTP() const ;
-        int nbTotal() const ;
+        virtual int nombreHeuresCM() const ;
+        virtual int nombreHeuresTD() const ;
+        virtual int nombreHeuresTP() const ;
+        int nombreHeuresTotal() const ;
         virtual void print(std::ostream& ost) const ;
-        virtual ~ECUE() = default;
+        virtual ~UEsimple() = default;
 
     private:
         matiere* d_m;
 };
 
-#endif // ECUE_H
+#endif // UESIMPLE_H
