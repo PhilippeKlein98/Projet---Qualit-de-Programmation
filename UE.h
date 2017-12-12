@@ -11,7 +11,6 @@ class UE
         virtual int coefficient() const = 0 ;
         virtual int ECTS() const ;
         virtual std::string intitule() const = 0 ;
-        virtual bool estAChoix() const = 0 ;
         virtual int nombreHeuresCM() const = 0 ;
         virtual int nombreHeuresTD() const = 0 ;
         virtual int nombreHeuresTP() const = 0 ;
@@ -19,7 +18,6 @@ class UE
         virtual void print(std::ostream& ost) const ;
 
     protected:
-        bool d_estAChoix ;
         int d_ETCS;
 };
 
