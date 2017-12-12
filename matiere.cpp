@@ -20,9 +20,9 @@ int matiere::nbrHTP()const
     return d_nbrHTP;
 }
 
-int matiere::coef()const
+int matiere::coefficient()const
 {
-    return d_coef;
+    return d_coefficient;
 }
 
 std::string matiere::code()const
@@ -60,12 +60,12 @@ void matiere::modifHTP(int nbrHTP)
     d_nbrHTP = nbrHTP;
 }
 
-void matiere::modifCoef(int coef)
+void matiere::modifCoefficient(int coefficient)
 {
-    d_coef = coef;
+    d_coefficient = coefficient;
 }
 
 void matiere::print(std::ostream & os)const
 {
-    os << d_nom << "\t" << d_coef << "\t" << d_nbrHcours << "\t" << d_nbrHTD << "\t" << d_nbrHTP << std::endl;
+    os << d_nom << "\t" << d_coefficient << "\t" << d_nbrHcours << "\t" << d_nbrHTD << "\t" << d_nbrHTP << std::endl;
 }
