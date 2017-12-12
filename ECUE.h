@@ -10,14 +10,14 @@ class ECUE: public UE
 {
     public:
         ECUE();
-        virtual std::string code() const = 0 ;
-        virtual int coef() const = 0 ;
-        virtual int ECTS() const = 0 ;
-        virtual std::string intitule() const = 0 ;
-        virtual bool estAChoix() const = 0 ;
-        virtual int nbCM() const = 0 ;
-        virtual int nbTD() const = 0 ;
-        virtual int nbTP() const = 0 ;
+        virtual std::string code() const ;
+        virtual int coef() const ;
+        virtual int ECTS() const ;
+        virtual std::string intitule() const ;
+        virtual bool estAChoix() const ;
+        virtual int nbCM() const ;
+        virtual int nbTD() const ;
+        virtual int nbTP() const ;
         int nbTotal() const ;
         virtual void print(std::ostream& ost) const ;
         virtual ~ECUE() = default;
