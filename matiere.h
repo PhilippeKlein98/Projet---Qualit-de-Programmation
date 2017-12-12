@@ -13,7 +13,7 @@ public:
     int nbrHcours()const;
     int nbrHTD()const;
     int nbrHTP()const;
-    int coef()const;
+    int coefficient()const;
 
     std::string code()const;
     std::string nom()const;
@@ -23,13 +23,13 @@ public:
     void modifHcours(int nbrHcours);
     void modifHTD(int nbrHTD);
     void modifHTP(int nbrHTP);
-    void modifCoef(int coef);
+    void modifCoefficient(int coefficient);
 
     void print(std::ostream & os)const;
 
 private:
     std::string d_code, d_nom;
-    int d_nbrHcours, d_nbrHTD, d_nbrHTP, d_coef;
+    int d_nbrHcours, d_nbrHTD, d_nbrHTP, d_coefficient;
 };
 
 #endif // MATIERE_H_INCLUDED
