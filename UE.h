@@ -5,17 +5,17 @@
 class UE
 {
     public:
-        UE(int dETCS, bool estACHoix = false);
+        UE(int dETCS, bool estAChoix = false);
         virtual ~UE() = default;
         virtual std::string code() const = 0 ;
-        virtual int coef() const = 0 ;
-        virtual int ECTS() const = 0 ;
+        virtual int coefficient() const = 0 ;
+        virtual int ECTS() const ;
         virtual std::string intitule() const = 0 ;
         virtual bool estAChoix() const = 0 ;
-        virtual int nbCM() const = 0 ;
-        virtual int nbTD() const = 0 ;
-        virtual int nbTP() const = 0 ;
-        int nbTotal() const ;
+        virtual int nombreHeuresCM() const = 0 ;
+        virtual int nombreHeuresTD() const = 0 ;
+        virtual int nombreHeuresTP() const = 0 ;
+        int nombreHeuresTotal() const ;
         virtual void print(std::ostream& ost) const ;
 
     protected:
