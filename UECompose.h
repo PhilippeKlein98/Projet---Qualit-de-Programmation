@@ -12,7 +12,7 @@ class UECompose : public UE
         UECompose();
 
     private:
-        std::vector<matiere*> d_lm;
+        std::vector<ECUE*> d_lm;
 };
 
 #endif // UECOMPOSE_H
