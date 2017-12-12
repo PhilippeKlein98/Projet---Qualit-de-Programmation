@@ -25,7 +25,7 @@ public:
     void modifHTP(int nbrHTP);
     void modifCoef(int coef);
 
-    void print(std::ostream & os);
+    void print(std::ostream & os)const;
 
 private:
     std::string d_code, d_nom;

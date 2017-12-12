@@ -1,6 +1,6 @@
 #include "UE.h"
 
-UE::UE(int dETCS, bool estACHoix): d_ETCS{dECTS}, d_estAChoix{estACHoix}
+UE::UE(int dECTS, bool estACHoix): d_ETCS(dECTS), d_estAChoix{estACHoix}
 {}
 
 int UE::nbTotal() const

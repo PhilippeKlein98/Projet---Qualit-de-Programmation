@@ -65,7 +65,7 @@ void matiere::modifCoef(int coef)
     d_coef = coef;
 }
 
-void matiere::print(std::ostream & os)
+void matiere::print(std::ostream & os)const
 {
     os << d_nom << "\t" << d_coef << "\t" << d_nbrHcours << "\t" << d_nbrHTD << "\t" << d_nbrHTP << std::endl;
 }

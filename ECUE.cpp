@@ -1,16 +1,17 @@
 #include "ECUE.h"
+#include "matiere.h"
 
-ECUE::ECUE()
+/*ECUE::ECUE()
 {
     //ctor
 }
-
+*/
 std::string ECUE::code() const
 {
     return d_m->code();
 }
 
-std::string ECUE::coef() const
+int ECUE::coef() const
 {
     return d_m->coef();
 }
@@ -30,9 +31,9 @@ bool ECUE::estAChoix() const
     return d_estAChoix;
 }
 
-int ECUE::nbCm() const
+int ECUE::nbCM() const
 {
-    return d_m->nbrHCours();
+    return d_m->nbrHcours();
 }
 
 int ECUE::nbTD() const
@@ -45,7 +46,7 @@ int ECUE::nbTP() const
     return d_m->nbrHTP();
 }
 
-void ECUE::print(std::ostream& ost)
+void ECUE::print(std::ostream& ost)const
 {
-    ost << *d_m;
+    d_m->print(ost);
 }

@@ -1,6 +1,7 @@
 #include "UECompose.h"
 
-UECompose::UECompose()
+/*UECompose::UECompose()
 {
     //ctor
 }
+*/

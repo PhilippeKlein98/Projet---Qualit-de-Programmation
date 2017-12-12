@@ -2,6 +2,8 @@
 #define UECOMPOSE_H
 
 #include "UE.h"
+#include <vector>
+
 class matiere;
 
 class UECompose : public UE

@@ -20,7 +20,7 @@ class ECUE: public UE
         virtual int nbTP() const = 0 ;
         int nbTotal() const ;
         virtual void print(std::ostream& ost) const ;
-        virtual ~UE();
+        virtual ~ECUE() = default;
 
     private:
         matiere* d_m;
