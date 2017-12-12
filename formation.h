@@ -10,13 +10,15 @@ class formation
         formation();
         std::string codeFormation() const;
         std::string intituleFormation() const;
-        int creditECTS() const;
+        int totalCreditECTS() const;
         maquette* operator[](int i) const;
         maquette* operator[](int i);
         void print(std::ostream& ost) const ;
 
     private:
         std::vector<maquette*> d_maquettes;
+		int d_codeFormation;
+		std::string d_intituleFormation;
 
 };
 
