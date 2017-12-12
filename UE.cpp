@@ -1,6 +1,6 @@
 #include "UE.h"
 
-UE::UE(int dECTS, bool estAChoix): d_ETCS(dECTS), d_estAChoix{estACHoix}
+UE::UE(int dECTS): d_ETCS(dECTS)
 {}
 
 int UE::nombreHeuresTotal() const
