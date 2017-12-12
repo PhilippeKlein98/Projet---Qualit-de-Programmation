@@ -1,15 +1,15 @@
 #include "UE.h"
 
-UE::UE(int dECTS, bool estACHoix): d_ETCS(dECTS), d_estAChoix{estACHoix}
+UE::UE(int dECTS, bool estAChoix): d_ETCS(dECTS), d_estAChoix{estACHoix}
 {}
 
-int UE::nbTotal() const
+int UE::nombreHeuresTotal() const
 {
-   return nbCM() + nbTD() + nbTP() ;
+   return nombreHeuresCM() + nombreHeuresTD() + nombreHeuresTP() ;
 }
 
 void UE::print(std::ostream& ost) const
 {
-    ost << code() << "\t" << coef() << "\t" << ECTS() << "\t" << "UE " ;
+    ost << code() << "\t" << coefficient() << "\t" << ECTS() << "\t" << "UE " ;
 }
 
