@@ -7,7 +7,10 @@ class UEchoix : public UE
     public:
         UEchoix();
         virtual ~UEchoix();
-
+        virtual std::string intitule() const = 0 ;
+        virtual int nombreHeuresCM() const = 0 ;
+        virtual int nombreHeuresTD() const = 0 ;
+virtual int nombreHeuresTP() const = 0 ;
     private:
         std::vector<UE*> d_listeUE ;
 };
