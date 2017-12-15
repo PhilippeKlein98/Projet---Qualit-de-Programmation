@@ -8,7 +8,7 @@ namespace gestionUE
     class UE
     {
         public:
-            UE(int ETCS , int coefficient);
+            UE(int ETCS);
             virtual ~UE() = default;
             virtual std::string code() const = 0 ;
             virtual int coefficient() const = 0 ;
