@@ -17,6 +17,7 @@ class UE
         int nombreHeuresTotal() const ;
         int nombreHeuresTotalEnTD() const ;
         virtual void print(std::ostream& ost) const ;
+        void test() ;
 
     protected:
         int d_ETCS;
