@@ -12,12 +12,7 @@ namespace gestionUE
     {
         public:
             UEsimple();
-            virtual std::string code() const ;
-            virtual int coefficient() const ;
             virtual int ECTS() const ;
-            virtual std::string intitule() const ;
-            virtual void print(std::ostream& ost) const ;
-
             virtual std::string intitule() const override ;
             virtual std::string code() const override ;
             virtual int coefficient() const override ;
