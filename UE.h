@@ -17,10 +17,11 @@ class UE
         int nombreHeuresTotal() const ;
         int nombreHeuresTotalEnTD() const ;
         virtual void print(std::ostream& ost) const ;
-        void test() ;
 
-    protected:
+    private:
         int d_ETCS;
+        int d_coefficient ;
+        
 };
 
 #endif // UE_H
