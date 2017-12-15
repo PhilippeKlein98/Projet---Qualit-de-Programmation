@@ -5,7 +5,7 @@
 class UE
 {
     public:
-        UE(int dETCS);
+        UE(int ETCS , int coefficient);
         virtual ~UE() = default;
         virtual std::string code() const = 0 ;
         virtual int coefficient() const = 0 ;
