@@ -5,7 +5,7 @@
 class UE
 {
     public:
-        UE(int dETCS, bool estAChoix = false);
+        UE(int dETCS);
         virtual ~UE() = default;
         virtual std::string code() const = 0 ;
         virtual int coefficient() const = 0 ;
