@@ -9,7 +9,7 @@ class UE
         virtual ~UE() = default;
         virtual std::string code() const = 0 ;
         virtual int coefficient() const = 0 ;
-        virtual int ECTS() const ;
+        int ECTS() const ;
         virtual std::string intitule() const = 0 ;
         virtual int nombreHeuresCM() const = 0 ;
         virtual int nombreHeuresTD() const = 0 ;
