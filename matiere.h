@@ -1,35 +1,40 @@
 #ifndef MATIERE_H_INCLUDED
 #define MATIERE_H_INCLUDED
 
-#include <iostream>
+#include "global.h"
 
-class matiere
+namespace gestionUE
 {
-public:
-    matiere() = default;
-    ~matiere() = default;
 
-    int nbrHtotal()const;
-    int nbrHcours()const;
-    int nbrHTD()const;
-    int nbrHTP()const;
-    int coefficient()const;
+    class matiere
+    {
+    public:
+        matiere() = default;
+        ~matiere() = default;
 
-    std::string code()const;
-    std::string nom()const;
+        int nombreHeureTotal()const;
+        double nombreHeureTotalEnTD()const;
+        int nombreHeureCM()cours()const;
+        int nombreHeureTD()const;
+        int nombreHeureTP()const;
+        int coefficient()const;
 
-    void modifCode(const std::string & code);
-    void modifNom(const std::string & nom);
-    void modifHcours(int nbrHcours);
-    void modifHTD(int nbrHTD);
-    void modifHTP(int nbrHTP);
-    void modifCoefficient(int coefficient);
+        std::string code()const;
+        std::string nom()const;
 
-    void print(std::ostream & os)const;
+        void modifierCode(const std::string & code);
+        void modifierNom(const std::string & nom);
+        void modifierHeureCM(int nombreHeureCM);
+        void modifierHeureTD(int nombreHeureTD);
+        void modifierHeureTP(int nombreHeureTP);
+        void modifierCoefficient(int coefficient);
 
-private:
-    std::string d_code, d_nom;
-    int d_nbrHcours, d_nbrHTD, d_nbrHTP, d_coefficient;
-};
+        void afficher(std::ostream & os)const;
 
+    private:
+        std::string d_code, d_nom;
+        int d_nombreHeureCM, d_nombreHeureTD, d_nombreHeureTP, d_coefficient;
+    };
+
+}
 #endif // MATIERE_H_INCLUDED

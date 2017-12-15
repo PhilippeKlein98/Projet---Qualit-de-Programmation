@@ -1,71 +1,81 @@
 #include "matiere.h"
 
-int matiere::nbrHtotal()const
+namespace gestionUE
 {
-    return d_nbrHcours + d_nbrHTD + d_nbrHTP;
-}
 
-int matiere::nbrHcours()const
-{
-    return d_nbrHcours;
-}
+    int matiere::nombreHeureTotal()const
+    {
+        return d_nombreHeureCM + d_nombreHeureTD + d_nombreHeureTP;
+    }
 
-int matiere::nbrHTD()const
-{
-    return d_nbrHTD;
-}
+    double matiere::nombreHeureTotalEnTD() const
+    {
+        return d_nombreHeureTD + d_nombreHeureCM * CM_VERS_TD + d_nombreHeureTP * TP_VERS_TD;
+    }
 
-int matiere::nbrHTP()const
-{
-    return d_nbrHTP;
-}
+    int matiere::nombreHeureCM()const
+    {
+        return d_nombreHeureCM;
+    }
 
-int matiere::coefficient()const
-{
-    return d_coefficient;
-}
+    int matiere::nombreHeureTD()const
+    {
+        return d_nombreHeureTD;
+    }
 
-std::string matiere::code()const
-{
-    return d_code;
-}
+    int matiere::nombreHeureTP()const
+    {
+        return d_nombreHeureTP;
+    }
 
-std::string matiere::nom()const
-{
-    return d_nom;
-}
+    int matiere::coefficient()const
+    {
+        return d_coefficient;
+    }
 
-void matiere::modifCode(const std::string & code)
-{
-    d_code = code;
-}
+    std::string matiere::code()const
+    {
+        return d_code;
+    }
 
-void matiere::modifNom(const std::string & nom)
-{
-    d_nom = nom;
-}
+    std::string matiere::nom()const
+    {
+        return d_nom;
+    }
 
-void matiere::modifHcours(int nbrHcours)
-{
-    d_nbrHcours = nbrHcours;
-}
+    void matiere::modifierCode(const std::string & code)
+    {
+        d_code = code;
+    }
 
-void matiere::modifHTD(int nbrHTD)
-{
-    d_nbrHTD = nbrHTD;
-}
+    void matiere::modifierNom(const std::string & nom)
+    {
+        d_nom = nom;
+    }
 
-void matiere::modifHTP(int nbrHTP)
-{
-    d_nbrHTP = nbrHTP;
-}
+    void matiere::modifierHeureCM(int nombreHeureCM)
+    {
+        d_nombreHeureCM = nombreHeureCM;
+    }
 
-void matiere::modifCoefficient(int coefficient)
-{
-    d_coefficient = coefficient;
-}
+    void matiere::modifierHeureTD(int nombreHeureTD)
+    {
+        d_nombreHeureTD = nombreHeureTD;
+    }
 
-void matiere::print(std::ostream & os)const
-{
-    os << d_nom << "\t" << d_coefficient << "\t" << d_nbrHcours << "\t" << d_nbrHTD << "\t" << d_nbrHTP << std::endl;
+    void matiere::modifierHeureTP(int nombreHeureTP)
+    {
+        d_nombreHeureTP = nombreHeureTP;
+    }
+
+    void matiere::modifierCoefficient(int coefficient)
+    {
+        d_coefficient = coefficient;
+    }
+
+    void matiere::afficher(std::ostream & os)const
+    {
+        os << d_nom << "\t" << d_coefficient << "\t" << d_nombreHeureCM << "\t" << d_nombreHeureTD << "\t" << d_nombreHeurTP << std::endl;
+    }
+
 }
