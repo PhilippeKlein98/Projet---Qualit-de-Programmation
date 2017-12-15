@@ -20,6 +20,8 @@ namespace gestionUE
 
             virtual int coefficient() const override;
 
+            int nombreHeuresTotal() const;
+            double nombreHeuresTotalEnTD() const;
             virtual int nombreHeuresCM() const override ;
             virtual int nombreHeuresTD() const override ;
             virtual int nombreHeuresTP() const override ;

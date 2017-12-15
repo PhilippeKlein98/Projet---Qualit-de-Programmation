@@ -21,13 +21,62 @@ namespace gestionUE
         return d_coefficient;
     }
 
+    int UEcomposee::nombreHeuresTotal() const
+    {
+        int resultat = 0;
+        for(int i = 0; i < d_listeMatieres.size(); ++i)
+        {
+            resultat += d_listeMatieres[i]->nombreHeuresTotal();
+        }
+        return resultat;
+    }
+
+    double UEcomposee::nombreHeuresTotalEnTD() const
+    {
+        double resultat = 0;
+        for(int i = 0; i < d_listeMatieres.size(); ++i)
+        {
+            resultat += d_listeMatieres[i]->nombreHeuresTotalEnTD();
+        }
+        return resultat;
+    }
+
     int UEcomposee::nombreHeuresCM()const
     {
         int resultat = 0;
         for(int i = 0; i < d_listeMatieres.size(); ++i)
         {
-            resultat += d_listeMatieres[i].matiere::nombreHeuresCM();
+            resultat += d_listeMatieres[i]->matiere::nombreHeuresCM();
         }
         return resultat;
+    }
+
+    int UEcomposee::nombreHeuresTD()const
+    {
+        int resultat = 0;
+        for(int i = 0; i < d_listeMatieres.size(); ++i)
+        {
+            resultat += d_listeMatieres[i]->matiere::nombreHeuresTD();
+        }
+        return resultat;
+    }
+
+    int UEcomposee::nombreHeuresTP()const
+    {
+        int resultat = 0;
+        for(int i = 0; i < d_listeMatieres.size(); ++i)
+        {
+            resultat += d_listeMatieres[i]->matiere::nombreHeuresTP();
+        }
+        return resultat;
+    }
+
+    void UEcomposee::afficher(std::ostream& ost)const
+    {
+        ost << d_code << "\t" << d_coefficient << "\t" << UE::afficher() << "\t" << d_intitule << "\t" << nombreHeuresCM() << "\t" << nombreHeuresTD() << "\t" << nombreHeuresTP() << "\t" << nombreHeuresTotal() << "\t" << nombreHeuresTotalEnTD() << std::endl;
+        for(int i = 0; i < d_listeMatieres.size(); ++i)
+        {
+            d_listeMatieres[i]->afficher();
+        }
     }
 }
