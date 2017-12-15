@@ -3,29 +3,29 @@
 namespace gestionUE
 {
 
-    int matiere::nombreHeureTotal()const
+    int matiere::nombreHeuresTotal()const
     {
-        return d_nombreHeureCM + d_nombreHeureTD + d_nombreHeureTP;
+        return d_nombreHeuresCM + d_nombreHeuresTD + d_nombreHeuresTP;
     }
 
-    double matiere::nombreHeureTotalEnTD() const
+    double matiere::nombreHeuresTotalEnTD() const
     {
-        return d_nombreHeureTD + d_nombreHeureCM * CM_VERS_TD + d_nombreHeureTP * TP_VERS_TD;
+        return d_nombreHeuresTD + d_nombreHeuresCM * CM_VERS_TD + d_nombreHeuresTP * TP_VERS_TD;
     }
 
-    int matiere::nombreHeureCM()const
+    int matiere::nombreHeuresCM()const
     {
-        return d_nombreHeureCM;
+        return d_nombreHeuresCM;
     }
 
-    int matiere::nombreHeureTD()const
+    int matiere::nombreHeuresTD()const
     {
-        return d_nombreHeureTD;
+        return d_nombreHeuresTD;
     }
 
-    int matiere::nombreHeureTP()const
+    int matiere::nombreHeuresTP()const
     {
-        return d_nombreHeureTP;
+        return d_nombreHeuresTP;
     }
 
     int matiere::coefficient()const
@@ -53,19 +53,19 @@ namespace gestionUE
         d_nom = nom;
     }
 
-    void matiere::modifierHeureCM(int nombreHeureCM)
+    void matiere::modifierHeuresCM(int nombreHeuresCM)
     {
-        d_nombreHeureCM = nombreHeureCM;
+        d_nombreHeuresCM = nombreHeuresCM;
     }
 
-    void matiere::modifierHeureTD(int nombreHeureTD)
+    void matiere::modifierHeuresTD(int nombreHeuresTD)
     {
-        d_nombreHeureTD = nombreHeureTD;
+        d_nombreHeuresTD = nombreHeuresTD;
     }
 
-    void matiere::modifierHeureTP(int nombreHeureTP)
+    void matiere::modifierHeuresTP(int nombreHeuresTP)
     {
-        d_nombreHeureTP = nombreHeureTP;
+        d_nombreHeuresTP = nombreHeuresTP;
     }
 
     void matiere::modifierCoefficient(int coefficient)
@@ -75,7 +75,7 @@ namespace gestionUE
 
     void matiere::afficher(std::ostream & os)const
     {
-        os << d_nom << "\t" << d_coefficient << "\t" << d_nombreHeureCM << "\t" << d_nombreHeureTD << "\t" << d_nombreHeureTP << std::endl;
+        os << d_nom << "\t" << d_coefficient << "\t" << d_nombreHeuresCM << "\t" << d_nombreHeuresTD << "\t" << d_nombreHeuresTP << std::endl;
     }
 
 }

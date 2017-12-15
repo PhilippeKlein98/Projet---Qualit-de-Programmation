@@ -12,11 +12,11 @@ namespace gestionUE
         matiere() = default;
         ~matiere() = default;
 
-        int nombreHeureTotal()const;
-        double nombreHeureTotalEnTD()const;
-        int nombreHeureCM()const;
-        int nombreHeureTD()const;
-        int nombreHeureTP()const;
+        int nombreHeuresTotal()const;
+        double nombreHeuresTotalEnTD()const;
+        int nombreHeuresCM()const;
+        int nombreHeuresTD()const;
+        int nombreHeuresTP()const;
         int coefficient()const;
 
         std::string code()const;
@@ -24,16 +24,16 @@ namespace gestionUE
 
         void modifierCode(const std::string & code);
         void modifierNom(const std::string & nom);
-        void modifierHeureCM(int nombreHeureCM);
-        void modifierHeureTD(int nombreHeureTD);
-        void modifierHeureTP(int nombreHeureTP);
+        void modifierHeuresCM(int nombreHeuresCM);
+        void modifierHeuresTD(int nombreHeuresTD);
+        void modifierHeuresTP(int nombreHeuresTP);
         void modifierCoefficient(int coefficient);
 
         void afficher(std::ostream & os)const;
 
     private:
         std::string d_code, d_nom;
-        int d_nombreHeureCM, d_nombreHeureTD, d_nombreHeureTP, d_coefficient;
+        int d_nombreHeuresCM, d_nombreHeuresTD, d_nombreHeuresTP, d_coefficient;
     };
 
 }
