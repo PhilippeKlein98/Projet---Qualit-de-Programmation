@@ -5,7 +5,7 @@
 class UE
 {
     public:
-        UE(int dETCS, bool estAChoix = false);
+        UE(int dETCS);
         virtual ~UE() = default;
         virtual std::string code() const = 0 ;
         virtual int coefficient() const = 0 ;
@@ -15,6 +15,7 @@ class UE
         virtual int nombreHeuresTD() const = 0 ;
         virtual int nombreHeuresTP() const = 0 ;
         int nombreHeuresTotal() const ;
+        int nombreHeuresTotalEnTD() const ;
         virtual void print(std::ostream& ost) const ;
 
     protected:
