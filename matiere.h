@@ -14,7 +14,7 @@ namespace gestionUE
 
         int nombreHeureTotal()const;
         double nombreHeureTotalEnTD()const;
-        int nombreHeureCM()cours()const;
+        int nombreHeureCM()const;
         int nombreHeureTD()const;
         int nombreHeureTP()const;
         int coefficient()const;

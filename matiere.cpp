@@ -75,7 +75,7 @@ namespace gestionUE
 
     void matiere::afficher(std::ostream & os)const
     {
-        os << d_nom << "\t" << d_coefficient << "\t" << d_nombreHeureCM << "\t" << d_nombreHeureTD << "\t" << d_nombreHeurTP << std::endl;
+        os << d_nom << "\t" << d_coefficient << "\t" << d_nombreHeureCM << "\t" << d_nombreHeureTD << "\t" << d_nombreHeureTP << std::endl;
     }
 
 }
