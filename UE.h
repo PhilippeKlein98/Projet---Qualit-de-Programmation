@@ -11,7 +11,7 @@ namespace gestionUE
             UE(int ETCS , int coefficient);
             virtual ~UE() = default;
             virtual std::string code() const = 0 ;
-            int coefficient() const ;
+            virtual int coefficient() const = 0 ;
             int ECTS() const ;
             virtual std::string intitule() const = 0 ;
             virtual int nombreHeuresCM() const = 0 ;
@@ -23,7 +23,6 @@ namespace gestionUE
 
         private:
             int d_ETCS;
-            int d_coefficient ;
 
     };
 }
