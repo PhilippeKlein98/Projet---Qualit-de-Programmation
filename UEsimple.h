@@ -1,29 +1,35 @@
 #ifndef UESIMPLE_H
 #define UESIMPLE_H
-
-#include <iostream>
+#include "global.h"
 
 #include "UE.h"
-class matiere;
 
-class UEsimple: public UE
-{
-    public:
-        UEsimple();
-        virtual std::string code() const ;
-        virtual int coefficient() const ;
-        virtual int ECTS() const ;
-        virtual std::string intitule() const ;
-        virtual bool estAChoix() const ;
-        virtual int nombreHeuresCM() const ;
-        virtual int nombreHeuresTD() const ;
-        virtual int nombreHeuresTP() const ;
-        int nombreHeuresTotal() const ;
-        virtual void print(std::ostream& ost) const ;
-        virtual ~UEsimple() = default;
+namespace gestionUE
+{  
+    class matiere;
 
-    private:
-        matiere* d_m;
-};
+    class UEsimple: public UE
+    {
+        public:
+            UEsimple();
+            virtual std::string code() const ;
+            virtual int coefficient() const ;
+            virtual int ECTS() const ;
+            virtual std::string intitule() const ;
+            virtual void print(std::ostream& ost) const ;
+
+            virtual std::string intitule() const override ;
+            virtual std::string code() const override ;
+            virtual int coefficient() const override ;
+            virtual int nombreHeuresCM() const override ;
+            virtual int nombreHeuresTD() const override ;
+            virtual int nombreHeuresTP() const override ;
+            virtual void print(std::ostream& ost) const override ;
+
+        private:
+            matiere* d_m;
+    };
+}
+
 
 #endif // UESIMPLE_H
