@@ -5,7 +5,7 @@
 #include "maquette.h"
 
 namespace gestionUE{
-	
+
 class formation
 {
     public:
@@ -14,11 +14,11 @@ class formation
         std::string intituleFormation() const;
         int totalCreditECTS() const;
 	void ajouterMaquette(maquette* m);
-	void supprimerDeniereMaquette();
+	void supprimerDerniereMaquette();
         maquette* operator[](int i) const;
         maquette* operator[](int i);
         void afficher(std::ostream& ost) const;
-	
+
 
     private:
         std::vector<maquette*> d_maquettes;
@@ -29,6 +29,6 @@ class formation
 
 }
 
-std::ostream& operator<<(std::ostream& ost, formation& f);
+std::ostream& operator<<(std::ostream& ost, gestionUE::formation& f);
 
 #endif // FORMATION_H

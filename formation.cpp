@@ -22,8 +22,8 @@ int formation::totalCreditECTS() const
 {
 	int total = 0;
 	for (auto m : d_maquettes)
-		total += d_maquettes.totalCreditECTS();
-	
+		total += m->totalCreditECTS();
+
 	return total;
 }
 
@@ -39,27 +39,27 @@ void formation::supprimerDerniereMaquette()
 
  maquette* formation::operator[](int i) const
  {
-	return (d_maquettes.size()>i) ? nullptr : d_maquettes[i]);
+	return ((d_maquettes.size()>i) ? nullptr : d_maquettes[i]);
  }
- 
+
   maquette* formation::operator[](int i)
  {
-	return (d_maquettes.size()>i) ? nullptr : d_maquettes[i]);
+	return ((d_maquettes.size()>i) ? nullptr : d_maquettes[i]);
  }
- 
+
  void formation::afficher(std::ostream& ost) const
  {
 	ost << "====================" << std::endl;
 	for (auto m : d_maquettes)
 		ost << m << std::endl;
-	
+
 	ost << "====================" << std::endl;
-	
+
  }
- 
+
 }
 
-std::ostream& operator<<(std::ostream& ost, formation& f)
+std::ostream& operator<<(std::ostream& ost, gestionUE::formation& f)
 {
 	f.afficher(ost);
 }

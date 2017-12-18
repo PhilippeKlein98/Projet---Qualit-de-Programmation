@@ -16,10 +16,10 @@ namespace gestionUE
         int nombreHeuresCM()const;
         int nombreHeuresTD()const;
         int nombreHeuresTP()const;
-        UE* operator[](int codeUE) const;
-        UE* operator[](int codeUE);
+        UE* operator[](int index) const;
+        UE* operator[](int index);
         void ajouterUE(UE*);
-        void supprimerUE(int codeUE);
+        void supprimerUE(int index);
         void print(std::ostream& ost) const ;
 
     private:
