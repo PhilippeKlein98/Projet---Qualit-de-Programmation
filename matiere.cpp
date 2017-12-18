@@ -111,4 +111,18 @@ namespace gestionUE
         }
     }
 
+    void matiere::supprimerMatiere(const std::string& codeMatiere)
+    {
+        int i=0 ;
+        while (i<listeMatieres.size() && codeMatiere!=listeMatieres[i]->code())
+        {
+            ++i ;
+        }
+        if (i!=listeMatieres.size())
+        {
+            std::swap(listeMatieres[listeMatieres.size()-1],listeMatieres[i]) ;
+            listeMatieres.pop_back() ;
+        }
+    }
+
 }

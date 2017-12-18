@@ -12,6 +12,7 @@ namespace gestionUE
         static std::vector<matiere*> listeMatieres ;
         static void sauverTout(std::ofstream& fout) ;
         static void chargerTout(std::ifstream& fin) ;
+        static void supprimerMatiere(const std::string& code) ;
 
         matiere() = default;
         matiere(const std::string& code , const std::string& nom , int coefficient , int heuresCM , int heuresTD , int heuresTP) ;
