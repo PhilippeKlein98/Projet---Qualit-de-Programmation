@@ -9,12 +9,13 @@ class maquette
 public:
 	maquette();
 	int totalCreditECTS() const;
-    int volumeHoraireTotal()const;
-	int nombreHeureDeCours()const;
-	int nombreHeureDeTD()const;
-	int nombreHeureDeTP()const;
+	double nombreHeuresTotalEnTD() const ;
+    	int nombreHeuresTotal()const;
+	int nombreHeuresCM()const;
+	int nombreHeuresTD()const;
+	int nombreHeuresTP()const;
 	UE* operator[](int codeUE) const;
-    UE* operator[](int codeUE);
+    	UE* operator[](int codeUE);
 	void ajouterUE(UE*);
 	void supprimerUE(int codeUE);
 	void print(std::ostream& ost) const ;
