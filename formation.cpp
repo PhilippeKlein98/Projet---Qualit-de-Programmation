@@ -5,7 +5,7 @@
 
 namespace gestionUE{
 
-formation::formation()
+formation::formation(int codeFormation, std::string &intituleFormation) : d_codeFormation{codeFormation}, d_intituleFormation{intituleFormation}, d_maquettes{}
 {}
 
 int formation::codeFormation() const
