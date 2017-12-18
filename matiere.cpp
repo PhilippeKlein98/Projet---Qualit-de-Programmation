@@ -1,7 +1,13 @@
 #include "matiere.h"
+#include <fstream>
 
 namespace gestionUE
 {
+    std::vector<matiere*> matiere::listeMatieres ;
+
+    matiere::matiere(const std::string& code , const std::string& nom , int coefficient , int heuresCM , int heuresTD , int heuresTP)  :
+        d_code{code} , d_nom{nom} , d_coefficient{coefficient} , d_nombreHeuresCM{heuresCM} , d_nombreHeuresTD{heuresTD} , d_nombreHeuresTP{heuresTP}
+    {}
 
     int matiere::nombreHeuresTotal()const
     {
@@ -75,7 +81,34 @@ namespace gestionUE
 
     void matiere::afficher(std::ostream & os)const
     {
-        os << d_code << "\t" << d_nom << "\t" << d_coefficient << "\t" << "\t" << d_nombreHeuresCM << "\t" << d_nombreHeuresTD << "\t" << d_nombreHeuresTP << "\t" << nombreHeuresTotal() << "\t" << nombreHeuresTotalEnTD() << std::endl;
+        os << d_code << "\t" << d_nom << "\t" << d_coefficient << "\t" << d_nombreHeuresCM << "\t" << d_nombreHeuresTD << "\t" << d_nombreHeuresTP << "\t" << nombreHeuresTotal() << "\t" << nombreHeuresTotalEnTD() << std::endl;
+    }
+
+    void matiere::sauver(std::ofstream& fout) const
+    {
+        fout << d_code << "\t" << d_nom << "\t" << d_coefficient << "\t" << "\t" << d_nombreHeuresCM << "\t" << d_nombreHeuresTD << "\t" << d_nombreHeuresTP ;
+    }
+
+    void matiere::sauverTout(std::ofstream& fout)
+    {
+        for (auto matiere : listeMatieres)
+        {
+            matiere->sauver(fout) ;
+            fout << std::endl ;
+        }
+    }
+
+    void matiere::chargerTout(std::ifstream& fin)
+    {
+        std::string code , nom ;
+        int coefficient , heuresCM , heuresTD , heuresTP ;
+        listeMatieres.clear() ;
+        while (!fin.eof())
+        {
+            fin >> code >> nom >> coefficient >> heuresCM >> heuresTD >> heuresTP ;
+            matiere* mat = new matiere{code,nom,coefficient,heuresCM,heuresTD,heuresTP} ;
+            listeMatieres.push_back(mat) ;
+        }
     }
 
 }
