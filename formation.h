@@ -15,7 +15,7 @@ class formation
         std::string& intituleFormation() const;
         int totalCreditECTS() const;
 	
-	void ajouterMaquette(maquette* maquette);
+	void ajouterMaquette(maquette* m);
 	void supprimerDeniereMaquette();
 	
         maquette* operator[](int i) const;
@@ -24,7 +24,7 @@ class formation
         void afficher(std::ostream& ost) const;
 	
 	static std::vector<formation*> listeFormations;
-	static void ajouterFormation(formation* formation);
+	static void ajouterFormation(formation* f);
 	static void supprimerFormation(std::string &intituleFormation);
 	static formation* rechercheFormation(std::string &intituleFormation);
 	static void consulterToutesLesFormations();
