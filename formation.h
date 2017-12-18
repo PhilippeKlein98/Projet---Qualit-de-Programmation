@@ -4,16 +4,19 @@
 #include <vector>
 #include "maquette.h"
 
+namespace gestionUE{
+	
 class formation
 {
     public:
         formation();
-        std::string codeFormation() const;
+        int	 codeFormation() const;
         std::string intituleFormation() const;
         int totalCreditECTS() const;
         maquette* operator[](int i) const;
         maquette* operator[](int i);
-        void print(std::ostream& ost) const ;
+        void print(std::ostream& ost) const;
+	
 
     private:
         std::vector<maquette*> d_maquettes;
@@ -21,5 +24,9 @@ class formation
 		std::string d_intituleFormation;
 
 };
+
+}
+
+std::ostream& operator<<(std::ostream& ost, formation& f);
 
 #endif // FORMATION_H
