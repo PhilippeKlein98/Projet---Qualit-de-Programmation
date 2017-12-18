@@ -13,15 +13,17 @@ class formation
         int	 codeFormation() const;
         std::string intituleFormation() const;
         int totalCreditECTS() const;
+	void ajouterMaquette(maquette* m);
+	void supprimerDeniereMaquette();
         maquette* operator[](int i) const;
         maquette* operator[](int i);
-        void print(std::ostream& ost) const;
+        void afficher(std::ostream& ost) const;
 	
 
     private:
         std::vector<maquette*> d_maquettes;
-		int d_codeFormation;
-		std::string d_intituleFormation;
+	int d_codeFormation;
+	std::string d_intituleFormation;
 
 };
 
