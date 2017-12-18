@@ -9,9 +9,9 @@ namespace gestionUE{
 class formation
 {
     public:
-        formation();
-        int	 codeFormation() const;
-        std::string intituleFormation() const;
+        formation(int codeFormation, std::string& intituleFormation);
+        int codeFormation() const;
+        std::string& intituleFormation() const;
         int totalCreditECTS() const;
 	void ajouterMaquette(maquette* m);
 	void supprimerDeniereMaquette();
