@@ -10,14 +10,24 @@ class formation
 {
     public:
         formation(int codeFormation, std::string& intituleFormation);
+	
         int codeFormation() const;
         std::string& intituleFormation() const;
         int totalCreditECTS() const;
-	void ajouterMaquette(maquette* m);
+	
+	void ajouterMaquette(maquette* maquette);
 	void supprimerDeniereMaquette();
+	
         maquette* operator[](int i) const;
         maquette* operator[](int i);
+	
         void afficher(std::ostream& ost) const;
+	
+	static std::vector<formation*> listeFormations;
+	static void ajouterFormation(formation* formation);
+	static void supprimerFormation(std::string &intituleFormation);
+	static formation* rechercheFormation(std::string &intituleFormation);
+	static void consulterToutesLesFormations();
 	
 
     private:
