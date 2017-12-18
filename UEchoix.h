@@ -1,6 +1,8 @@
 #ifndef UECHOIX_H
 #define UECHOIX_H
 
+#include <vector>
+#include "UE.h"
 #include "global.h"
 
 namespace gestionUE
@@ -11,11 +13,11 @@ namespace gestionUE
             UEchoix();
             virtual ~UEchoix();
             virtual std::string intitule() const override ;
-            virtual int nombreHeuresCM() const = 0 ;
-            virtual int nombreHeuresTD() const = 0 ;
-            virtual int nombreHeuresTP() const = 0 ;
+            virtual int nombreHeuresCM() const override ;
+            virtual int nombreHeuresTD() const override ;
+            virtual int nombreHeuresTP() const override ;
         private:
-            std::string intitule ;
+            std::string d_intitule ;
             std::vector<UE*> d_listeUE ;
     };
 }
