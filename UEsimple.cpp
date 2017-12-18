@@ -1,47 +1,42 @@
 #include "UEsimple.h"
 #include "matiere.h"
 
-std::string UEsimple::code() const
+namespace gestionUE
 {
-    return d_m->code();
+    std::string UEsimple::code() const
+    {
+        return d_matiere->code();
+    }
+
+    int UEsimple::coefficient() const
+    {
+        return d_matiere->coefficient();
+    }
+
+    std::string UEsimple::intitule() const
+    {
+        return d_matiere->nom();
+    }
+
+    int UEsimple::nombreHeuresCM() const
+    {
+        return d_matiere->nombreHeuresCM();
+    }
+
+    int UEsimple::nombreHeuresTD() const
+    {
+        return d_matiere->nombreHeuresTD();
+    }
+
+    int UEsimple::nombreHeuresTP() const
+    {
+        return d_matiere->nombreHeuresTP();
+    }
+
+    void UEsimple::afficher(std::ostream& ost)const
+    {
+        d_matiere->afficher(ost);
+    }
 }
 
-int UEsimple::coefficient() const
-{
-    return d_m->coef();
-}
 
-int UEsimple::ECTS() const
-{
-    return d_ETCS;
-}
-
-std::string UEsimple::intitule() const
-{
-    return d_m->nom();
-}
-
-bool UEsimple::estAChoix() const
-{
-    return d_estAChoix;
-}
-
-int UEsimple::nombreHeuresCM() const
-{
-    return d_m->nbrHcours();
-}
-
-int UEsimple::nombreHeuresTD() const
-{
-    return d_m->nbrHTD();
-}
-
-int UEsimple::nombreHeuresTP() const
-{
-    return d_m->nbrHTP();
-}
-
-void UEsimple::print(std::ostream& ost)const
-{
-    d_m->print(ost);
-}
