@@ -26,7 +26,10 @@ namespace gestionUE
         ost << code() << "\t" << coefficient() << "\t" << ECTS() << "\t" << "UE " ;
     }
 
+    void UE::sauver(std::ofstream& fout) const
+    {
 
+    }
 }
 
 

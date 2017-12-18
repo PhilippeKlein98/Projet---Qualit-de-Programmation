@@ -1,6 +1,7 @@
 #ifndef UE_H
 #define UE_H
 #include<iostream>
+#include<vector>
 
 namespace gestionUE
 {
@@ -8,6 +9,10 @@ namespace gestionUE
     class UE
     {
         public:
+            static std::vector<UE*> listeUE ;
+            static void sauverTout(std::ofstream& fout) const ;
+            static void chargerTout(std::ifstream& fin) ;
+
             UE(int ECTS);
             virtual ~UE() = default;
             virtual std::string code() const = 0 ;
@@ -20,6 +25,7 @@ namespace gestionUE
             int nombreHeuresTotal() const ;
             double nombreHeuresTotalEnTD() const ;
             virtual void afficher(std::ostream& ost) const ;
+            virtual void sauver(std::ofstream& fout) const ;
 
         private:
             int d_ECTS;
