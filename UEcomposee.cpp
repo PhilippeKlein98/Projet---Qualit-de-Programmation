@@ -27,7 +27,7 @@ namespace gestionUE
         int resultat = 0;
         for(int i = 0; i < d_listeMatieres.size(); ++i)
         {
-            resultat += d_listeMatieres[i]->matiere::nombreHeuresCM();
+            resultat += d_listeMatieres[i]->nombreHeuresCM();
         }
         return resultat;
     }
@@ -37,7 +37,7 @@ namespace gestionUE
         int resultat = 0;
         for(int i = 0; i < d_listeMatieres.size(); ++i)
         {
-            resultat += d_listeMatieres[i]->matiere::nombreHeuresTD();
+            resultat += d_listeMatieres[i]->nombreHeuresTD();
         }
         return resultat;
     }
@@ -47,7 +47,7 @@ namespace gestionUE
         int resultat = 0;
         for(int i = 0; i < d_listeMatieres.size(); ++i)
         {
-            resultat += d_listeMatieres[i]->matiere::nombreHeuresTP();
+            resultat += d_listeMatieres[i]->nombreHeuresTP();
         }
         return resultat;
     }
