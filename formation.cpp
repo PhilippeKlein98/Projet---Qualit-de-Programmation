@@ -57,9 +57,9 @@ void formation::supprimerDerniereMaquette()
 	
  }
 	
-void formation formation::ajouterFormation(formation* formation)
+void formation formation::ajouterFormation(formation* f)
 {
-	listeFormations.push_back(formation);
+	listeFormations.push_back(f);
 }
 
 void formation::supprimerFormation(std::string &intituleFormation)
