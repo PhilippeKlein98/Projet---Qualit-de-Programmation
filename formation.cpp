@@ -56,6 +56,32 @@ void formation::supprimerDerniereMaquette()
 	ost << "====================" << std::endl;
 	
  }
+	
+void formation formation::ajouterFormation(formation* formation)
+{
+	listeFormations.push_back(formation);
+}
+
+void formation::supprimerFormation(std::string &intituleFormation)
+{
+	for (int i = 0; i<listeFormations.size(); i++)
+		if(listeFormations[i].intituleFormation()==intituleFormation)
+			listeFormations.erase(i);
+}
+	
+formation* formation::rechercheFormation(std::string &intituleFormation)
+{
+	for (auto f : listeFormations)
+		if(f.intituleFormation()==intituleFormation)
+			return f;
+}
+	
+void formation::afficherToutesLesFormations(std::ostream& ost)
+{
+	for (auto f : listeFormations)
+		ost << f.intituleFormation() << endl;
+}
+	
  
 }
 
