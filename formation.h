@@ -37,8 +37,10 @@ class formation
 
 };
 
+std::ostream& operator<<(std::ostream& ost, formation& f);
+	
 }
 
-std::ostream& operator<<(std::ostream& ost, formation& f);
+
 
 #endif // FORMATION_H
