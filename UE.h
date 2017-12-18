@@ -1,6 +1,7 @@
 #ifndef UE_H
 #define UE_H
 #include<iostream>
+#include <fstream>
 #include<vector>
 
 namespace gestionUE
@@ -10,7 +11,7 @@ namespace gestionUE
     {
         public:
             static std::vector<UE*> listeUE ;
-            static void sauverTout(std::ofstream& fout) const ;
+            static void sauverTout(std::ofstream& fout);
             static void chargerTout(std::ifstream& fin) ;
 
             UE(int ECTS);

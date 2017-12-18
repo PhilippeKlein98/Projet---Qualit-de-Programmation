@@ -5,6 +5,8 @@
 
 namespace gestionUE{
 
+    std::vector<formation*> formation::listeFormations;
+
 formation::formation(int codeFormation, std::string &intituleFormation) : d_codeFormation{codeFormation}, d_intituleFormation{intituleFormation}, d_maquettes{}
 {}
 
@@ -13,7 +15,7 @@ int formation::codeFormation() const
 	return d_codeFormation;
 }
 
-std::string& formation::intituleFormation() const
+std::string formation::intituleFormation() const
 {
 	return d_intituleFormation;
 }
@@ -23,11 +25,6 @@ int formation::totalCreditECTS() const
 	int total = 0;
 	for (auto m : d_maquettes)
 		total += m->totalCreditECTS();
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> c3b8dd41e7094796ea86d4af8ad6c20d6523f53d
 	return total;
 }
 
@@ -60,40 +57,43 @@ void formation::supprimerDerniereMaquette()
 	ost << "====================" << std::endl;
 
  }
-<<<<<<< HEAD
 
-=======
-	
-void formation formation::ajouterFormation(formation* f)
+void formation::ajouterFormation(formation* f)
 {
 	listeFormations.push_back(f);
 }
 
 void formation::supprimerFormation(std::string &intituleFormation)
 {
-	for (int i = 0; i<listeFormations.size(); i++)
-		if(listeFormations[i].intituleFormation()==intituleFormation)
-			listeFormations.erase(i);
+	        int i=0 ;
+        while (i<listeFormations.size() && intituleFormation!=listeFormations[i]->intituleFormation())
+        {
+            ++i ;
+        }
+        if (i!=listeFormations.size())
+        {
+            std::swap(listeFormations[listeFormations.size()-1],listeFormations[i]) ;
+            listeFormations.pop_back() ;
+        }
 }
-	
+
 formation* formation::rechercheFormation(std::string &intituleFormation)
 {
 	for (auto f : listeFormations)
-		if(f.intituleFormation()==intituleFormation)
+		if(f->intituleFormation()==intituleFormation)
 			return f;
 }
-	
+
 void formation::afficherToutesLesFormations(std::ostream& ost)
 {
 	for (auto f : listeFormations)
-		ost << f.intituleFormation() << endl;
+		ost << f->intituleFormation() << std::endl;
 }
-	
- 
->>>>>>> c3b8dd41e7094796ea86d4af8ad6c20d6523f53d
-}
+
 
 std::ostream& operator<<(std::ostream& ost, gestionUE::formation& f)
 {
 	f.afficher(ost);
+}
+
 }
