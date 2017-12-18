@@ -13,7 +13,7 @@ int formation::codeFormation() const
 	return d_codeFormation;
 }
 
-std::string formation::intituleFormation() const
+std::string& formation::intituleFormation() const
 {
 	return d_intituleFormation;
 }
