@@ -4,11 +4,11 @@
 
 namespace gestionUE
 {
-   
+
     class UE
     {
         public:
-            UE(int ETCS);
+            UE(int ECTS);
             virtual ~UE() = default;
             virtual std::string code() const = 0 ;
             virtual int coefficient() const = 0 ;
@@ -19,10 +19,10 @@ namespace gestionUE
             virtual int nombreHeuresTP() const = 0 ;
             int nombreHeuresTotal() const ;
             double nombreHeuresTotalEnTD() const ;
-            virtual void print(std::ostream& ost) const ;
+            virtual void afficher(std::ostream& ost) const ;
 
         private:
-            int d_ETCS;
+            int d_ECTS;
 
     };
 }
