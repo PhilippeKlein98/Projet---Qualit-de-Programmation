@@ -1,4 +1,5 @@
 #include "matiere.h"
+#include "UE.h"
 #include <fstream>
 
 namespace gestionUE
@@ -120,6 +121,13 @@ namespace gestionUE
         }
         if (i!=listeMatieres.size())
         {
+            for (auto ue : UE::listeUE)
+            {
+                if (ue->contientMatiere(codeMatiere))
+                {
+                    ue->supprimerMatiere(codeMatiere) ;
+                }
+            }
             std::swap(listeMatieres[listeMatieres.size()-1],listeMatieres[i]) ;
             listeMatieres.pop_back() ;
         }
