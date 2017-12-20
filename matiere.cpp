@@ -113,7 +113,7 @@ namespace gestionUE
 
     void matiere::supprimerMatiere(const std::string& codeMatiere)
     {
-        int i=0 ;
+        unsigned int i=0 ;
         while (i<listeMatieres.size() && codeMatiere!=listeMatieres[i]->code())
         {
             ++i ;
