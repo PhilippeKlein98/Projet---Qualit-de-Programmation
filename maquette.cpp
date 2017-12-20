@@ -2,6 +2,23 @@
 
 namespace gestionUE
 {
+    std::vector<maquette> maquette::listeMaquette;
+
+    void maquette::sauverTout(std::ofstream& fout)
+    {
+        for(const maquette* maq : listeMaquette)
+        {
+            maq->sauver(fout);
+            fout << std::endl;
+        }
+    }
+
+    void maquette::chargerTout(std::ifstream& fin)
+    {
+
+    }
+
+
     maquette:: maquette() {}
 
     int maquette::totalCreditECTS() const
@@ -101,7 +118,14 @@ namespace gestionUE
 
     void maquette::print(std::ostream& ost) const
     {
+        for(UE* ue : d_listeUE)
+            ost << *ue << std::endl;
+    }
 
+    void maquette::sauver(std::ofstream file) const
+    {
+        for(UE* ue : d_listeUE)
+            file << ue->code() << '\t';
     }
 
 }

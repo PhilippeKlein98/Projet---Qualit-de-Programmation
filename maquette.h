@@ -9,6 +9,12 @@ namespace gestionUE
     class maquette
     {
     public:
+        static std::vector<maquette*> listeMaquette;
+        static void sauverTout(std::ofstream& fout);
+        static void chargerTout(std::ifstream& fin);
+        static void libererTout();
+
+    public:
         maquette();
         int totalCreditECTS() const;
         double nombreHeuresTotalEnTD() const ;
@@ -21,6 +27,8 @@ namespace gestionUE
         void ajouterUE(UE*);
         void supprimerUE(int index);
         void print(std::ostream& ost) const ;
+
+        void sauver(std::ofstream& file) const;
 
     private:
         std::vector<UE*> d_listeUE;
