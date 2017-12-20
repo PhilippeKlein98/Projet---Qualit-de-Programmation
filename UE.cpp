@@ -1,5 +1,6 @@
 #include "UE.h"
 #include "global.h"
+#include "maquette.h"
 
 namespace gestionUE
 {
@@ -28,11 +29,6 @@ namespace gestionUE
         ost << code() << "\t" << coefficient() << "\t" << ECTS() << "\t" << "UE " ;
     }
 
-    void UE::sauver(std::ofstream& fout) const
-    {
-
-    }
-
     void UE::supprimerUE(const std::string& codeUE)
     {
         unsigned int i=0 ;
@@ -42,9 +38,39 @@ namespace gestionUE
         }
         if (i!=listeUE.size())
         {
+            for (auto m : maquette::listeMaquette)
+            {
+                /*if (m->contientUE(codeUE))
+                {
+                    m->supprimerUE(codeUE) ;
+                }*/
+            }
             std::swap(listeUE[listeUE.size()-1],listeUE[i]) ;
             listeUE.pop_back() ;
         }
+    }
+
+    void UE::sauverTout(std::ofstream& fout)
+    {
+        for (auto ue : listeUE)
+        {
+            ue->sauver(fout) ;
+            fout << std::endl ;
+        }
+    }
+
+    UE* UE::chercherUE(const std::string& codeUE)
+    {
+        unsigned int i = 0 ;
+        while (i<listeUE.size() && listeUE[i]->code() != codeUE)
+        {
+            ++i ;
+        }
+        if (i==listeUE.size())
+        {
+            return nullptr ;
+        }
+        return listeUE[i] ;
     }
 }
 

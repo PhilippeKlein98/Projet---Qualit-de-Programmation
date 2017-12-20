@@ -11,6 +11,7 @@ namespace gestionUE
     {
         public:
             static std::vector<UE*> listeUE ;
+            static UE* chercherUE (const std::string& codeUE) ;
             static void sauverTout(std::ofstream& fout);
             static void chargerTout(std::ifstream& fin) ;
             static void supprimerUE(const std::string& codeUE) ;
@@ -33,7 +34,7 @@ namespace gestionUE
             virtual void supprimerMatiere(const std::string& codeMatiere) const = 0 ;
 
             virtual void afficher(std::ostream& ost) const ;
-            virtual void sauver(std::ofstream& fout) const = 0 ;
+            virtual void sauver(std::ofstream& fout) const = 0;
 
         private:
             int d_ECTS;
