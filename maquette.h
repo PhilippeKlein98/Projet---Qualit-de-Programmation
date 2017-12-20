@@ -2,6 +2,7 @@
 #define MAQUETTE_H_INCLUDED
 #include <vector>
 #include <iostream>
+#include <sstream>
 #include "UE.h"
 
 namespace gestionUE

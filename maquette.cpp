@@ -15,8 +15,35 @@ namespace gestionUE
 
     void maquette::chargerTout(std::ifstream& fin)
     {
+        while(!fin.eof())
+        {
+            maquette* maq = new maquette();
+            listeMaquette.push_back(maq);
 
+            std::string str;
+            std::getline(fin,str);
+
+            std::istringstream iss(str);
+
+            iss >> str;
+            while(!iss.eof())
+            {
+                UE* ue = UE::chercherUE(str);
+                if(!ue)
+                    return;
+                maq->d_listeUE.push_back(ue);
+                iss >> str;
+            }
+        }
     }
+
+    void maquette::libererTout()
+    {
+        for(const maquette* maq : listeMaquette)
+            delete maq;
+    }
+
+
 
 
     maquette:: maquette() {}
