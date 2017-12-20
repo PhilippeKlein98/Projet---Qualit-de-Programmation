@@ -147,4 +147,11 @@ namespace gestionUE
         return listeMatieres[i] ;
     }
 
+    void matiere::libererTout()
+    {
+        for (auto m : listeMatieres)
+        {
+            delete m ;
+        }
+    }
 }

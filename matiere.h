@@ -14,6 +14,7 @@ namespace gestionUE
         static void chargerTout(std::ifstream& fin) ;
         static void supprimerMatiere(const std::string& codeMatiere) ;
         static matiere* chercherMatiere(const std::string& codeMatiere) ;
+        static void libererTout() ;
 
         matiere() = default;
         matiere(const std::string& code , const std::string& nom , int coefficient , int heuresCM , int heuresTD , int heuresTP) ;
