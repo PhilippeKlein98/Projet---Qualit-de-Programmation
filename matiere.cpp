@@ -133,6 +133,18 @@ namespace gestionUE
         }
     }
 
+    matiere* matiere::chercherMatiere(const std::string& codeMatiere)
+    {
+        unsigned int i = 0 ;
+        while (i<listeMatieres.size() && listeMatieres[i]->code() != codeMatiere)
+        {
+            ++i ;
+        }
+        if (i==listeMatieres.size())
+        {
+            return nullptr ;
+        }
+        return listeMatieres[i] ;
+    }
+
 }
-
-

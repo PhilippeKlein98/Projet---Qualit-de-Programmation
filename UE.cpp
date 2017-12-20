@@ -36,7 +36,7 @@ namespace gestionUE
         {
             ++i ;
         }
-        if (i!=listeUE.size())
+        if (i != listeUE.size())
         {
             for (auto m : maquette::listeMaquette)
             {
