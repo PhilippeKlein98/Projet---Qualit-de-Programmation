@@ -9,9 +9,8 @@ namespace gestionUE{
 class formation
 {
     public:
-        formation(int codeFormation, std::string& intituleFormation);
+        formation(std::string intituleFormation);
 
-        int codeFormation() const;
         std::string intituleFormation() const;
         int totalCreditECTS() const;
 
@@ -36,7 +35,7 @@ class formation
 
     private:
         std::vector<maquette*> d_maquettes;
-	int d_codeFormation;
+
 	std::string d_intituleFormation;
 
 };
