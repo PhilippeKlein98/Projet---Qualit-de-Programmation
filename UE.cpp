@@ -72,6 +72,14 @@ namespace gestionUE
         }
         return listeUE[i] ;
     }
+
+    void UE::libererTout()
+    {
+        for(auto ue : listeUE)
+        {
+            delete ue ;
+        }
+    }
 }
 
 
