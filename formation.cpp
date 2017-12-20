@@ -7,13 +7,9 @@ namespace gestionUE{
 
     std::vector<formation*> formation::listeFormations;
 
-formation::formation(int codeFormation, std::string &intituleFormation) : d_codeFormation{codeFormation}, d_intituleFormation{intituleFormation}, d_maquettes{}
+formation::formation(std::string intituleFormation) : d_intituleFormation{intituleFormation}, d_maquettes{}
 {}
 
-int formation::codeFormation() const
-{
-	return d_codeFormation;
-}
 
 std::string formation::intituleFormation() const
 {
