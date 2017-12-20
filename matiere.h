@@ -41,7 +41,7 @@ namespace gestionUE
     private:
 
         std::string d_code, d_nom;
-        int d_nombreHeuresCM, d_nombreHeuresTD, d_nombreHeuresTP, d_coefficient;
+        int d_coefficient, d_nombreHeuresCM, d_nombreHeuresTD, d_nombreHeuresTP;
     };
 
 }
