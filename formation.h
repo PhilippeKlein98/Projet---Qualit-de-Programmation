@@ -17,9 +17,6 @@ class formation
 	void ajouterMaquette(maquette* m);
 	void supprimerDerniereMaquette();
 
-	void supprimerDeniereMaquette();
-
-
         maquette* operator[](int i) const;
         maquette* operator[](int i);
 
