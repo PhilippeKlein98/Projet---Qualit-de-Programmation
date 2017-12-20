@@ -3,6 +3,11 @@
 
 namespace gestionUE
 {
+    std::string UEsimple::intitule() const
+    {
+        return d_matiere->nom();
+    }
+
     std::string UEsimple::code() const
     {
         return d_matiere->code();
@@ -11,11 +16,6 @@ namespace gestionUE
     int UEsimple::coefficient() const
     {
         return d_matiere->coefficient();
-    }
-
-    std::string UEsimple::intitule() const
-    {
-        return d_matiere->nom();
     }
 
     int UEsimple::nombreHeuresCM() const
@@ -36,6 +36,11 @@ namespace gestionUE
     void UEsimple::afficher(std::ostream& ost)const
     {
         d_matiere->afficher(ost);
+    }
+
+    void UEsimple::sauver(std::ofstream& ost) const
+    {
+        ost << UE_SIMPLE << " " << coefficient() << " " << coefficient() << " " ;
     }
 }
 
