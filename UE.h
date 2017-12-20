@@ -33,7 +33,7 @@ namespace gestionUE
             virtual void supprimerMatiere(const std::string& codeMatiere) const = 0 ;
 
             virtual void afficher(std::ostream& ost) const ;
-            virtual void sauver(std::ofstream& fout) const ;
+            virtual void sauver(std::ofstream& fout) const = 0 ;
 
         private:
             int d_ECTS;
