@@ -34,23 +34,23 @@ void formation::supprimerDerniereMaquette()
 	d_maquettes.pop_back();
 }
 
- maquette* formation::operator[](int i) const
+ maquette* formation::operator[](unsigned int i) const
  {
 	return ((d_maquettes.size()>i) ? nullptr : d_maquettes[i]);
  }
 
-  maquette* formation::operator[](int i)
+  maquette* formation::operator[](unsigned int i)
  {
 	return ((d_maquettes.size()>i) ? nullptr : d_maquettes[i]);
  }
 
  void formation::afficher(std::ostream& ost) const
  {
-	ost << "====================" << std::endl;
+	ost << "========================================" << std::endl;
 	for (auto m : d_maquettes)
 		ost << m << std::endl;
 
-	ost << "====================" << std::endl;
+	ost << "========================================" << std::endl;
 
  }
 
@@ -61,7 +61,7 @@ void formation::ajouterFormation(formation* f)
 
 void formation::supprimerFormation(std::string &intituleFormation)
 {
-	        int i=0 ;
+        int i=0 ;
         while (i<listeFormations.size() && intituleFormation!=listeFormations[i]->intituleFormation())
         {
             ++i ;
@@ -73,23 +73,30 @@ void formation::supprimerFormation(std::string &intituleFormation)
         }
 }
 
-formation* formation::rechercheFormation(std::string &intituleFormation)
+formation* formation::rechercheFormation(const std::string &intituleFormation)
 {
 	for (auto f : listeFormations)
 		if(f->intituleFormation()==intituleFormation)
 			return f;
+
+    return nullptr;
 }
 
 void formation::afficherToutesLesFormations(std::ostream& ost)
 {
+    ost << "========================================" << std::endl;
+
 	for (auto f : listeFormations)
 		ost << f->intituleFormation() << std::endl;
+
+    ost << "========================================" << std::endl;
 }
 
 
-std::ostream& operator<<(std::ostream& ost, gestionUE::formation& f)
+std::ostream& operator<<(std::ostream& ost, formation& f)
 {
 	f.afficher(ost);
+	return ost;
 }
 
 }
