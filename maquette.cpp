@@ -2,7 +2,7 @@
 
 namespace gestionUE
 {
-    std::vector<maquette> maquette::listeMaquette;
+    std::vector<maquette*> maquette::listeMaquette;
 
     void maquette::sauverTout(std::ofstream& fout)
     {
@@ -119,10 +119,10 @@ namespace gestionUE
     void maquette::print(std::ostream& ost) const
     {
         for(UE* ue : d_listeUE)
-            ost << *ue << std::endl;
+            ue->afficher(ost) ;
     }
 
-    void maquette::sauver(std::ofstream file) const
+    void maquette::sauver(std::ofstream& file) const
     {
         for(UE* ue : d_listeUE)
             file << ue->code() << '\t';
