@@ -24,11 +24,13 @@ namespace gestionUE
             virtual int nombreHeuresTP() const override ;
 
             virtual void afficher(std::ostream& ost) const override ;
+            virtual void sauver(std::ofstream& ost) const override ;
 
         private:
-            std::string d_intitule , d_code ;
+            std::string d_code ;
+            int d_coefficient ;
+            std::string d_intitule ;
             std::vector<UE*> d_listeUE ;
-            int d_coefficient;
     };
 }
 

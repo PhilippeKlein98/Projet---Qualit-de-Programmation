@@ -8,7 +8,7 @@ namespace gestionUE
 
     UEchoix::~UEchoix()
     {
-        for(int i = 0; i < d_listeUE.size(); ++i)
+        for(unsigned int i = 0; i < d_listeUE.size(); ++i)
         {
             delete d_listeUE[i];
         }
@@ -32,7 +32,7 @@ namespace gestionUE
     int UEchoix::nombreHeuresCM() const
     {
         int resultat = 0;
-        for(int i = 0; i < d_listeUE.size(); ++i)
+        for(unsigned int i = 0; i < d_listeUE.size(); ++i)
         {
             resultat += d_listeUE[i]->nombreHeuresCM();
         }
@@ -42,7 +42,7 @@ namespace gestionUE
     int UEchoix::nombreHeuresTD() const
     {
         int resultat = 0;
-        for(int i = 0; i < d_listeUE.size(); ++i)
+        for(unsigned int i = 0; i < d_listeUE.size(); ++i)
         {
             resultat += d_listeUE[i]->nombreHeuresTD();
         }
@@ -52,7 +52,7 @@ namespace gestionUE
     int UEchoix::nombreHeuresTP() const
     {
         int resultat = 0;
-        for(int i = 0; i < d_listeUE.size(); ++i)
+        for(unsigned int i = 0; i < d_listeUE.size(); ++i)
         {
             resultat += d_listeUE[i]->nombreHeuresTP();
         }
@@ -62,10 +62,18 @@ namespace gestionUE
     void UEchoix::afficher(std::ostream& ost) const
     {
         ost << d_code << "\t" << d_coefficient << "\t" << d_intitule << "\t" << nombreHeuresCM() << "\t" << nombreHeuresTD() << "\t" << nombreHeuresTP() << "\t" << nombreHeuresTotal() << "\t" << nombreHeuresTotalEnTD() << std::endl;
-        for(int i = 0; i < d_listeUE.size(); ++i)
+        for(unsigned int i = 0; i < d_listeUE.size(); ++i)
         {
             d_listeUE[i]->afficher(ost);
         }
     }
 
+    void UEchoix::sauver(std::ofstream& ost) const
+    {
+        ost << UE_CHOIX << "\t" << ECTS() << "\t" << d_intitule << "\t" << d_code << "\t" << d_coefficient << "\t" << d_listeUE.size() << "\t" ;
+        for(unsigned int i = 0; i < d_listeUE.size(); ++i)
+        {
+            ost << d_listeUE[i]->code() << "\t" ;
+        }
+    }
 }
