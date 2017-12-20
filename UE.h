@@ -13,6 +13,7 @@ namespace gestionUE
             static std::vector<UE*> listeUE ;
             static void sauverTout(std::ofstream& fout);
             static void chargerTout(std::ifstream& fin) ;
+            static void supprimerUE(std::string& codeUE) ;
 
             UE(int ECTS);
             virtual ~UE() = default;
