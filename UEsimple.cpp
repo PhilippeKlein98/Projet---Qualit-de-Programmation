@@ -40,7 +40,7 @@ namespace gestionUE
 
     void UEsimple::sauver(std::ofstream& ost) const
     {
-        ost << UE_SIMPLE << " " << ECTS() << " " << code() << " " ;
+        ost << UE_SIMPLE << "\t" << coefficient() << "\t" << code() ;
     }
 }
 

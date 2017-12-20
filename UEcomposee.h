@@ -24,6 +24,7 @@ namespace gestionUE
             virtual int nombreHeuresTP() const override ;
 
             virtual void afficher(std::ostream& ost) const override ;
+            virtual void sauver(std::ofstream& ost) const override ;
 
         private:
             std::string d_intitule ;
