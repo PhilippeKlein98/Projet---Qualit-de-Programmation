@@ -30,12 +30,11 @@ class formation
 	static void supprimerFormation(std::string &intituleFormation);
 	static formation* rechercheFormation(std::string &intituleFormation);
 
-    static void afficherToutesLesFormations(std::ostream& ost);
+    	static void afficherToutesLesFormations(std::ostream& ost);
 
 
     private:
         std::vector<maquette*> d_maquettes;
-
 	std::string d_intituleFormation;
 
 };
