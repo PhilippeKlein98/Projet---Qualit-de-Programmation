@@ -30,7 +30,9 @@ namespace gestionUE
 
             std::istringstream iss(str);
 
-            iss >> str;
+            iss >> maq->d_identifiant; //identifiant de la maquette
+
+            iss >> str;//premier code UE
             while(!iss.eof())
             {
                 UE* ue = UE::chercherUE(str);
@@ -153,8 +155,20 @@ namespace gestionUE
     {
         for(int i=0; i<d_listeUE.size(); i++)
         {
-            if(codeUE == d_listeUE[i]->code()) {}
+            if(codeUE == d_listeUE[i]->code())
+            {
+                supprimerUE(i);
+            }
         }
+    }
+
+    bool maquette::contientUE(const std::string& codeUE) const
+    {
+        for(UE* ue : d_listeUE)
+            if(codeUE == ue->code())
+                return true;
+
+        return false;
     }
 
 
