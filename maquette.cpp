@@ -48,14 +48,12 @@ namespace gestionUE
             delete maq;
     }
 
-
-
-    long unsigned int identifiant()const
+    long unsigned int maquette::identifiant()const
     {
         return d_identifiant;
     }
 
-    maquette:: maquette() {}
+    maquette:: maquette(): d_identifiant{identifiantSuivant++} {}
 
     int maquette::totalCreditECTS() const
     {
@@ -149,6 +147,14 @@ namespace gestionUE
         }
 
         d_listeUE.pop_back();
+    }
+
+    void maquette::supprimerUE(const std::string& codeUE)
+    {
+        for(int i=0; i<d_listeUE.size(); i++)
+        {
+            if(codeUE == d_listeUE[i]->code()) {}
+        }
     }
 
 
