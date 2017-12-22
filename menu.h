@@ -3,19 +3,22 @@
 #include <string>
 
 namespace gestionUE{
-	
+
 class menu
 {
     public:
+        menu();
         void menuPrincipal();
 		void menuFormations();
-		void menuMaquettes();
-		void menuUEs();
-		
-		int testInt(const std::string& s);
+		//void menuMaquettes();
+		//void menuUEs();
+
+		int verifieEtRenvoieSaisieEntier(const std::string& message) const;
+		std::string verifieEtRenvoieSaisieChaineDeCaractere(const std::string& message) const;
+		bool saisieReussie() const;
 
     private:
-        
+
 };
 
 }

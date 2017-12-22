@@ -15,6 +15,7 @@ namespace gestionUE
             static void sauverTout(std::ofstream& fout);
             static void chargerTout(std::ifstream& fin) ;
             static void supprimerUE(const std::string& codeUE) ;
+            static void libererTout() ;
 
             UE(int ECTS);
             virtual ~UE() = default;

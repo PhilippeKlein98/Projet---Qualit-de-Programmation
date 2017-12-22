@@ -1,9 +1,19 @@
 #include <iostream>
-
-using namespace std;
+#include <vector>
+#include "formation.h"
+#include "menu.h"
 
 int main()
 {
-    cout << "Hello world!" << endl;
+
+    gestionUE::formation::ajouterFormation(new gestionUE::formation{"Licence mathematiques"});
+    gestionUE::formation::ajouterFormation(new gestionUE::formation{"Licence informatique"});
+    gestionUE::formation::ajouterFormation(new gestionUE::formation{"Licence miage"});
+
+
+    gestionUE::menu m{};
+    m.menuPrincipal();
+
+
     return 0;
 }

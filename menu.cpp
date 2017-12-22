@@ -1,12 +1,18 @@
 #include "menu.h"
+#include "formation.h"
 #include <string>
+#include <iostream>
+#include <stdlib.h>
 
 using std::cout;
 using std::cin;
 using std::endl;
 
 namespace gestionUE{
-	
+
+menu::menu()
+{}
+
 
 void menu::menuPrincipal()
 {
@@ -19,21 +25,20 @@ void menu::menuPrincipal()
     cout << "2. Maquettes" << endl;
 	cout << "3. UEs" << endl;
     cout << "0. Quitter" << endl;
-    
+
     do
     {
-    	i = testInt("Choix : ");
-		cout << endl;
+    	i = verifieEtRenvoieSaisieEntier("Choix: ");
 		switch(i)
 	    {
 	        case 1 :
 	            menuFormations();
 	            break;
 	        case 2 :
-	            menuMaquettes();
+	            //menuMaquettes();
 	            break;
 			case 3 :
-	            menuUEs();
+	            //menuUEs();
 	            break;
 	        case 0 :
                 exit(0);
@@ -54,18 +59,22 @@ void menu::menuFormations()
     cout << "2. Rechercher une formation" << endl;
 	cout << "3. Ajouter une formation" << endl;
     cout << "0. Quitter" << endl;
-    
+
     do
     {
-    	i = testInt("Choix : ");
-		cout << endl;
+    	i = verifieEtRenvoieSaisieEntier("Choix: ");
 		switch(i)
 	    {
 	        case 1 :
-	            // to do
+                formation::afficherToutesLesFormations(cout);
 	            break;
 	        case 2 :
-	            // to do
+	            {
+	                std::string titreFormation = verifieEtRenvoieSaisieChaineDeCaractere("Entrer le nom d'une formation: ");
+                    //formation* elem = formation::rechercheFormation(titreFormation);
+                    //cout << elem->intituleFormation() << endl;
+
+	            }
 	            break;
 			case 3 :
 	            // to do
@@ -81,28 +90,54 @@ void menu::menuFormations()
 
 
 /**
-	Test si l'utilisateur entre bien un entier
-	@param s - La chaine de caractere que l'on veut afficher avant la saisie
+	Verifie si l'utilisateur entre bien un entier
 	@return l'entier saisi
 */
-int menu::testInt(const std::string& s)
+int menu::verifieEtRenvoieSaisieEntier(const std::string& message) const
 {
-	int i;
-	do
-    {
-	    cout << s;
-	    cin >> i;
-		if( cin.fail() )
-	    {
-			cin.clear();
-			cin.ignore(256,'\n');
-			i = -1;
-		}
+	int entier;
+	do{
+        cout << message;
+        cin >> entier;
 	}
-	while( i == -1 );
-	return i;
+	while(!saisieReussie());
+
+    return entier;
 }
 
 
+/**
+	Verifie si l'utilisateur entre bien une chaine de caractere
+	@return la chaine de caractere saisie
+*/
+std::string menu::verifieEtRenvoieSaisieChaineDeCaractere(const std::string& message) const
+{
+	std::string chaineDeCaractere;
+	do{
+        cout << message;
+        cin.ignore(256,'\n');
+        std::getline(cin, chaineDeCaractere);
+	}
+	while(!saisieReussie());
+
+    return chaineDeCaractere;
+}
+
+/**
+	Verifie si la saisie est reussie
+	@return Vrai si reussi, Faux sinon
+*/
+bool menu::saisieReussie() const
+{
+
+    if( cin.fail() )
+    {
+        cin.clear();
+        cin.ignore(256,'\n');
+        return false;
+    }
+
+    return true;
+}
 
 }
