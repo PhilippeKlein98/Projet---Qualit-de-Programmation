@@ -11,7 +11,7 @@ namespace gestionUE
     class UEsimple: public UE
     {
         public:
-            UEsimple();
+            UEsimple(int ECTS, const std::string code);
 
             virtual std::string intitule() const override ;
             virtual std::string code() const override ;
