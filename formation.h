@@ -30,6 +30,7 @@ class formation
 	static formation* rechercheFormation(const std::string &intituleFormation);
 
     static void afficherToutesLesFormations(std::ostream& ost);
+    static void sauverTout(std::ofstream& ofst);
 
 
     private:
