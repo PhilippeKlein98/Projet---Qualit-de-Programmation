@@ -30,7 +30,7 @@ namespace gestionUE
             virtual void supprimerMatiere(const std::string& codeMatiere) override ;
 
             bool contientUE(const std::string& codeUE) const ;
-            void ajouterUE(UE* ue) ;
+            void ajouterUE(const std::string& codeUE) ;
 
         private:
             std::string d_code ;
