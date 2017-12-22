@@ -108,9 +108,25 @@ namespace gestionUE
     void UEchoix::ajouterUE(const std::string& codeUE)
     {
         UE* ue = UE::chercherUE(codeUE) ;
-        if (ue != nullptr)
+        if (ue != nullptr && !contientUE(ue->code()))
         {
             d_listeUE.push_back(ue) ;
         }
+    }
+
+    void UEchoix::supprimerUE(const std::string& codeUE)
+    {
+        int i=0 ;
+        while (i<d_listeUE.size() && d_listeUE[i]->code()!=codeUE)
+        {
+            i++ ;
+        }
+        if (i!=d_listeUE.size())
+        {
+            d_listeUE[i] = nullptr ;
+            std::swap(d_listeUE[i],d_listeUE[d_listeUE.size()-1]) ;
+            d_listeUE.pop_back() ;
+        }
+
     }
 }

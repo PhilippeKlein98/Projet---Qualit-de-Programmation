@@ -31,6 +31,7 @@ namespace gestionUE
 
             bool contientUE(const std::string& codeUE) const ;
             void ajouterUE(const std::string& codeUE) ;
+            void supprimerUE(const std::string& codeUE) ;
 
         private:
             std::string d_code ;
