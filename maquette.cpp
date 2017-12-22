@@ -39,7 +39,7 @@ namespace gestionUE
 
     void maquette::libererTout()
     {
-        for(const maquette* maq : listeMaquette)
+        for(maquette* maq : listeMaquette)
             delete maq;
     }
 
