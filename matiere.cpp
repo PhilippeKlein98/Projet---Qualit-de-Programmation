@@ -107,8 +107,7 @@ namespace gestionUE
         while (!fin.eof())
         {
             fin >> code >> nom >> coefficient >> heuresCM >> heuresTD >> heuresTP ;
-            matiere* mat = new matiere{code,nom,coefficient,heuresCM,heuresTD,heuresTP} ;
-            listeMatieres.push_back(mat) ;
+            creerMatiere(code, nom, coefficient, heuresCM, heuresTD, heuresTP) ;
         }
     }
 
@@ -153,5 +152,11 @@ namespace gestionUE
         {
             delete m ;
         }
+    }
+
+    void matiere::creerMatiere(const std::string& code , const std::string& nom , int coefficient , int heuresCM , int heuresTD , int heuresTP)
+    {
+        matiere* nouvelleMatiere = new matiere{ code , nom , coefficient , heuresCM , heuresTD , heuresTP };
+        listeMatieres.push_back(nouvelleMatiere);
     }
 }

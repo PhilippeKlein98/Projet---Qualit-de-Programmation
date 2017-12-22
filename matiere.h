@@ -15,9 +15,9 @@ namespace gestionUE
         static void supprimerMatiere(const std::string& codeMatiere) ;
         static matiere* chercherMatiere(const std::string& codeMatiere) ;
         static void libererTout() ;
+        static void creerMatiere(const std::string& code , const std::string& nom , int coefficient , int heuresCM , int heuresTD , int heuresTP) ;
 
-        matiere() = default;
-        matiere(const std::string& code , const std::string& nom , int coefficient , int heuresCM , int heuresTD , int heuresTP) ;
+        matiere() = delete;
         ~matiere() = default;
 
         int nombreHeuresTotal()const;
@@ -41,7 +41,7 @@ namespace gestionUE
         void sauver(std::ofstream & fout) const;
 
     private:
-
+        matiere(const std::string& code , const std::string& nom , int coefficient , int heuresCM , int heuresTD , int heuresTP) ;
         std::string d_code, d_nom;
         int d_coefficient, d_nombreHeuresCM, d_nombreHeuresTD, d_nombreHeuresTP;
     };
