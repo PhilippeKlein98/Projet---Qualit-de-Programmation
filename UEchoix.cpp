@@ -94,4 +94,22 @@ namespace gestionUE
             ue->supprimerMatiere(codeMatiere) ;
         }
     }
+
+    bool UEchoix::contientUE(const std::string& codeUE) const
+    {
+        int i=0 ;
+        while (i<d_listeUE.size() && d_listeUE[i]->code()!=codeUE)
+        {
+            i++ ;
+        }
+        return i<d_listeUE.size() ;
+    }
+
+    void UEchoix::ajouterUE(UE* ue)
+    {
+        if (!contientUE(ue->code()))
+        {
+            d_listeUE.push_back(ue) ;
+        }
+    }
 }
