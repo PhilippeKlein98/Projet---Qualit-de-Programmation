@@ -93,6 +93,21 @@ void formation::afficherToutesLesFormations(std::ostream& ost)
 }
 
 
+void formation::sauverTout(std::ofstream& ofst)
+{
+    for (auto f : listeFormations)
+    {
+        ofst << f->intituleFormation() <<  '\t';
+
+        for (auto m : f->d_maquettes)
+            ofst << m->identifiant() <<  '\t';
+
+        ofst << std::endl;
+    }
+
+}
+
+
 std::ostream& operator<<(std::ostream& ost, formation& f)
 {
 	f.afficher(ost);
