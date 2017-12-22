@@ -76,4 +76,22 @@ namespace gestionUE
             ost << d_listeUE[i]->code() << "\t" ;
         }
     }
+
+    bool UEchoix::contientMatiere(const std::string& codeMatiere) const
+    {
+        int i=0 ;
+        while(i<d_listeUE.size() && !d_listeUE[i]->contientMatiere(codeMatiere))
+        {
+            ++i ;
+        }
+        return i!=d_listeUE.size() ;
+    }
+
+    void UEchoix::supprimerMatiere(const std::string& codeMatiere)
+    {
+        for(auto ue : d_listeUE)
+        {
+            ue->supprimerMatiere(codeMatiere) ;
+        }
+    }
 }

@@ -27,7 +27,7 @@ namespace gestionUE
             virtual void sauver(std::ofstream& ost) const override ;
 
             virtual bool contientMatiere(const std::string& codeMatiere) const override ;
-            virtual void supprimerMatiere(const std::string& codeMatiere) const override ;
+            virtual void supprimerMatiere(const std::string& codeMatiere) override ;
 
         private:
             std::string d_intitule ;

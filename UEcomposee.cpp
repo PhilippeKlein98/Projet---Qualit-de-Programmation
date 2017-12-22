@@ -82,7 +82,7 @@ namespace gestionUE
         return i!=d_listeMatieres.size() ;
     }
 
-    void UEcomposee::supprimerMatiere(const std::string& codeMatiere) const
+    void UEcomposee::supprimerMatiere(const std::string& codeMatiere)
     {
         int i=0 ;
         while (i<d_listeMatieres.size() && d_listeMatieres[i]->code()!=codeMatiere)
@@ -90,7 +90,7 @@ namespace gestionUE
             ++i ;
         }
         d_listeMatieres[i] = nullptr ;
-        swap(d_listeMatieres[i],d_listeMatieres[d_listeMatieres.size()-1]) ;
+        std::swap(d_listeMatieres[i],d_listeMatieres[d_listeMatieres.size()-1]) ;
         d_listeMatieres.pop_back() ;
     }
 }
