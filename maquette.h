@@ -10,6 +10,7 @@ namespace gestionUE
     class maquette
     {
     public:
+        static long unsigned int identifiantSuivant;
         static std::vector<maquette*> listeMaquette;
         static void sauverTout(std::ofstream& fout);
         static void chargerTout(std::ifstream& fin);
@@ -25,7 +26,7 @@ namespace gestionUE
         int nombreHeuresTP()const;
         UE* operator[](int index) const;
         UE* operator[](int index);
-
+long unsigned int identifiant()const;
         bool contientUE(const std::string& codeUE) const ;
         void ajouterUE(UE*);
         void supprimerUE(int index);
@@ -35,6 +36,7 @@ namespace gestionUE
         void sauver(std::ofstream& file) const;
 
     private:
+        long unsigned int d_identifiant;
         std::vector<UE*> d_listeUE;
     };
 }

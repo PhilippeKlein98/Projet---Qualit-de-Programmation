@@ -1,11 +1,15 @@
 #include "maquette.h"
 
+
 namespace gestionUE
 {
+    long unsigned int maquette::identifiantSuivant = 1;
+
     std::vector<maquette*> maquette::listeMaquette;
 
     void maquette::sauverTout(std::ofstream& fout)
     {
+        fout << identifiantSuivant;
         for(const maquette* maq : listeMaquette)
         {
             maq->sauver(fout);
@@ -15,6 +19,7 @@ namespace gestionUE
 
     void maquette::chargerTout(std::ifstream& fin)
     {
+        fin >> identifiantSuivant;
         while(!fin.eof())
         {
             maquette* maq = new maquette();
@@ -45,6 +50,10 @@ namespace gestionUE
 
 
 
+    long unsigned int identifiant()const
+    {
+        return d_identifiant;
+    }
 
     maquette:: maquette() {}
 
