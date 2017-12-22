@@ -3,9 +3,17 @@
 
 namespace gestionUE
 {
+
     long unsigned int maquette::identifiantSuivant = 1;
 
     std::vector<maquette*> maquette::listeMaquette;
+
+    maquette:: maquette(): d_identifiant{identifiantSuivant++} {}
+
+    maquette::maquette(unsigned int identifiant) : d_identifiant{identifiant}, d_listeUE{}
+    {
+        listeMaquette.push_back(this);
+    }
 
     void maquette::sauverTout(std::ofstream& fout)
     {
@@ -55,7 +63,7 @@ namespace gestionUE
         return d_identifiant;
     }
 
-    maquette:: maquette(): d_identifiant{identifiantSuivant++} {}
+
 
     int maquette::totalCreditECTS() const
     {
@@ -182,6 +190,12 @@ namespace gestionUE
     {
         for(UE* ue : d_listeUE)
             file << ue->code() << '\t';
+    }
+
+    std::ostream& operator<<(std::ostream& ost, maquette& m)
+    {
+        m.afficher(ost);
+        return ost;
     }
 
 }

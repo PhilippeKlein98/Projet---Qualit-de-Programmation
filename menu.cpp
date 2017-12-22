@@ -23,7 +23,7 @@ void menu::menuPrincipal()
     cout << "Action sur les : " << endl;
     cout << "1. Formations" << endl;
     cout << "2. Maquettes" << endl;
-	cout << "3. UEs" << endl;
+	cout << "3. Matieres" << endl;
     cout << "0. Quitter" << endl;
 
     do
@@ -56,9 +56,9 @@ void menu::menuFormations()
     int i;
     cout << "Gestionnaire de formations : " << endl;
     cout << "1. Afficher toutes les formations" << endl;
-    cout << "2. Rechercher une formation" << endl;
+    cout << "2. Afficher une formation" << endl;
 	cout << "3. Ajouter une formation" << endl;
-    cout << "0. Quitter" << endl;
+    cout << "0. Retour" << endl;
 
     do
     {
@@ -67,12 +67,18 @@ void menu::menuFormations()
 	    {
 	        case 1 :
                 formation::afficherToutesLesFormations(cout);
+                system("PAUSE");
+                menuFormations();
 	            break;
 	        case 2 :
 	            {
 	                std::string titreFormation = verifieEtRenvoieSaisieChaineDeCaractere("Entrer le nom d'une formation: ");
-                    //formation* elem = formation::rechercheFormation(titreFormation);
-                    //cout << elem->intituleFormation() << endl;
+                    formation* elem = formation::rechercheFormation(titreFormation);
+
+                    if(elem)
+                        cout << *elem;
+                    system("PAUSE");
+                    menuFormations();
 
 	            }
 	            break;
@@ -80,7 +86,8 @@ void menu::menuFormations()
 	            // to do
 	            break;
 	        case 0 :
-                exit(0);
+                menuPrincipal();
+                break;
 	        default :
 	            cout << "Veuillez selectionner une option valide." << endl;
 		}

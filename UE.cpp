@@ -6,8 +6,10 @@ namespace gestionUE
 {
     std::vector<UE*> UE::listeUE ;
 
-    UE::UE(int dECTS): d_ECTS{dECTS}
-    {}
+    UE::UE(int ECTS): d_ECTS{ECTS}
+    {
+        listeUE.push_back(this);
+    }
 
     int UE::nombreHeuresTotal() const
     {
@@ -81,6 +83,3 @@ namespace gestionUE
         }
     }
 }
-
-
-

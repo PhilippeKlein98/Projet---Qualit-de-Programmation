@@ -3,7 +3,8 @@
 
 namespace gestionUE
 {
-    UEsimple::UEsimple(int ECTS, const std::string code) : UE{ECTS} , d_matiere{chercherUE(code)}
+
+    UEsimple::UEsimple(int ECTS, const std::string code) : UE{ECTS} , d_matiere{matiere::chercherMatiere(code)}
     {}
 
     std::string UEsimple::intitule() const
@@ -59,5 +60,3 @@ namespace gestionUE
         ost << UE_SIMPLE << "\t" << coefficient() << "\t" << code() ;
     }
 }
-
-

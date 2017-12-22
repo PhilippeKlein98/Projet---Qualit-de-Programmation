@@ -17,7 +17,8 @@ namespace gestionUE
         static void libererTout();
 
     public:
-
+        maquette();
+        maquette(unsigned int identifiant);
         int totalCreditECTS() const;
         double nombreHeuresTotalEnTD() const ;
         int nombreHeuresTotal()const;
@@ -36,10 +37,12 @@ namespace gestionUE
         void sauver(std::ofstream& file) const;
 
     private:
-        maquette();
+
         long unsigned int d_identifiant;
         std::vector<UE*> d_listeUE;
     };
+
+    std::ostream& operator<<(std::ostream& ost, maquette& m);
 }
 
 

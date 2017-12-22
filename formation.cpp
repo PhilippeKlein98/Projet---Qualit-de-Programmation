@@ -46,9 +46,10 @@ void formation::supprimerDerniereMaquette()
 
  void formation::afficher(std::ostream& ost) const
  {
-	ost << "========================================" << std::endl;
+
+	ost << "=======" << d_intituleFormation << "=======" << std::endl;
 	for (auto m : d_maquettes)
-		ost << m << std::endl;
+		ost << *m << std::endl;
 
 	ost << "========================================" << std::endl;
 
@@ -79,6 +80,7 @@ formation* formation::rechercheFormation(const std::string &intituleFormation)
 		if(f->intituleFormation()==intituleFormation)
 			return f;
 
+    std::cout << "Aucune formation correspondante." << std::endl;
     return nullptr;
 }
 
