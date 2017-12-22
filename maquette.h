@@ -31,7 +31,7 @@ namespace gestionUE
         void ajouterUE(UE*);
         void supprimerUE(int index);
         void supprimerUE(const std::string& codeUE) ;
-        void print(std::ostream& ost) const ;
+        void afficher(std::ostream& ost) const ;
 
         void sauver(std::ofstream& file) const;
 

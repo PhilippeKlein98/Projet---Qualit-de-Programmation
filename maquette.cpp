@@ -172,7 +172,7 @@ namespace gestionUE
     }
 
 
-    void maquette::print(std::ostream& ost) const
+    void maquette::afficher(std::ostream& ost) const
     {
         for(UE* ue : d_listeUE)
             ue->afficher(ost) ;
