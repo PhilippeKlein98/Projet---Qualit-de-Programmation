@@ -33,6 +33,19 @@ namespace gestionUE
         return d_matiere->nombreHeuresTP();
     }
 
+    bool  UEsimple::contientMatiere(const std::string& codeMatiere) const
+    {
+        return d_matiere->code()  == codeMatiere ;
+    }
+
+    void UEsimple::supprimerMatiere(const std::string& codeMatiere)
+    {
+        if( d_matiere->code() == codeMatiere )
+        {
+            d_matiere = nullptr ;
+        }
+    }
+
     void UEsimple::afficher(std::ostream& ost)const
     {
         d_matiere->afficher(ost);

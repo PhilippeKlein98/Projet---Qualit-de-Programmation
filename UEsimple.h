@@ -22,6 +22,9 @@ namespace gestionUE
             virtual int nombreHeuresTD() const override ;
             virtual int nombreHeuresTP() const override ;
 
+            virtual bool contientMatiere(const std::string& codeMatiere) const override ;
+            virtual void supprimerMatiere(const std::string& codeMatiere) override ;
+
             virtual void afficher(std::ostream& ost) const override ;
             virtual void sauver(std::ofstream& ist) const override ;
 
