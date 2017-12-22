@@ -71,4 +71,26 @@ namespace gestionUE
             ost << d_listeMatieres[i]->code() << "\t" ;
         }
     }
+
+    bool UEcomposee::contientMatiere(const std::string& codeMatiere) const
+    {
+        int i=0 ;
+        while (i<d_listeMatieres.size() && d_listeMatieres[i]->code()!=codeMatiere)
+        {
+            ++i ;
+        }
+        return i!=d_listeMatieres.size() ;
+    }
+
+    void UEcomposee::supprimerMatiere(const std::string& codeMatiere) const
+    {
+        int i=0 ;
+        while (i<d_listeMatieres.size() && d_listeMatieres[i]->code()!=codeMatiere)
+        {
+            ++i ;
+        }
+        d_listeMatieres[i] = nullptr ;
+        swap(d_listeMatieres[i],d_listeMatieres[d_listeMatieres.size()-1]) ;
+        d_listeMatieres.pop_back() ;
+    }
 }

@@ -26,6 +26,9 @@ namespace gestionUE
             virtual void afficher(std::ostream& ost) const override ;
             virtual void sauver(std::ofstream& ost) const override ;
 
+            virtual bool contientMatiere(const std::string& codeMatiere) const override ;
+            virtual void supprimerMatiere(const std::string& codeMatiere) const override ;
+
         private:
             std::string d_intitule ;
             std::string d_code ;
