@@ -32,7 +32,7 @@ namespace gestionUE
             double nombreHeuresTotalEnTD() const ;
 
             virtual bool contientMatiere(const std::string& codeMatiere) const = 0 ;
-            virtual void supprimerMatiere(const std::string& codeMatiere) const = 0 ;
+            virtual void supprimerMatiere(const std::string& codeMatiere) = 0 ;
 
             virtual void afficher(std::ostream& ost) const ;
             virtual void sauver(std::ofstream& fout) const = 0;
