@@ -1,5 +1,6 @@
 #include "formation.h"
 #include "maquette.h"
+#include "global.h"
 #include <vector>
 #include<iostream>
 
@@ -95,20 +96,27 @@ void formation::afficherToutesLesFormations(std::ostream& ost)
 }
 
 
-void formation::sauverTout(std::ofstream& ofst)
+void formation::sauverTout()
 {
+    std::ofstream ofst{FICHIER_FORMATION.c_str()} ;
     for (auto f : listeFormations)
     {
         ofst << f->intituleFormation() <<  '\t';
 
-        for (auto m : f->d_maquettes)
-            ofst << m->identifiant() <<  '\t';
+        for (auto maquette : f->d_maquettes)
+            ofst << maquette->identifiant() <<  '\t';
 
         ofst << std::endl;
     }
-
 }
 
+void formation::libererTout()
+{
+    for (auto form : listeFormations)
+    {
+        delete form ;
+    }
+}
 
 std::ostream& operator<<(std::ostream& ost, formation& f)
 {

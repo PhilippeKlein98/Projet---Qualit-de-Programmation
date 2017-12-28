@@ -42,18 +42,19 @@ namespace gestionUE
         {
             for (auto m : maquette::listeMaquette)
             {
-                /*if (m->contientUE(codeUE))
+                if (m->contientUE(codeUE))
                 {
                     m->supprimerUE(codeUE) ;
-                }*/
+                }
             }
             std::swap(listeUE[listeUE.size()-1],listeUE[i]) ;
             listeUE.pop_back() ;
         }
     }
 
-    void UE::sauverTout(std::ofstream& fout)
+    void UE::sauverTout()
     {
+        std::ofstream fout {FICHIER_UE.c_str()} ;
         for (auto ue : listeUE)
         {
             ue->sauver(fout) ;

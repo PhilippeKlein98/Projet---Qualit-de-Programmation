@@ -90,8 +90,9 @@ namespace gestionUE
         fout << d_code << "\t" << d_nom << "\t" << d_coefficient << "\t" << "\t" << d_nombreHeuresCM << "\t" << d_nombreHeuresTD << "\t" << d_nombreHeuresTP ;
     }
 
-    void matiere::sauverTout(std::ofstream& fout)
+    void matiere::sauverTout()
     {
+        std::ofstream fout {FICHIER_MATIERE.c_str()} ;
         for (auto matiere : listeMatieres)
         {
             matiere->sauver(fout) ;
@@ -99,8 +100,9 @@ namespace gestionUE
         }
     }
 
-    void matiere::chargerTout(std::ifstream& fin)
+    void matiere::chargerTout()
     {
+        std::ifstream fin{FICHIER_MATIERE.c_str()} ;
         std::string code , nom ;
         int coefficient , heuresCM , heuresTD , heuresTP ;
         listeMatieres.clear() ;

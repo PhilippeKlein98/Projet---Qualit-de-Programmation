@@ -10,8 +10,8 @@ namespace gestionUE
     {
     public:
         static std::vector<matiere*> listeMatieres ;
-        static void sauverTout(std::ofstream& fout) ;
-        static void chargerTout(std::ifstream& fin) ;
+        static void sauverTout() ;
+        static void chargerTout() ;
         static void supprimerMatiere(const std::string& codeMatiere) ;
         static matiere* chercherMatiere(const std::string& codeMatiere) ;
         static void libererTout() ;

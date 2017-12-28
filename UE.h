@@ -12,8 +12,8 @@ namespace gestionUE
         public:
             static std::vector<UE*> listeUE ;
             static UE* chercherUE (const std::string& codeUE) ;
-            static void sauverTout(std::ofstream& fout);
-            static void chargerTout(std::ifstream& fin) ;
+            static void sauverTout();
+            static void chargerTout() ;
             static void supprimerUE(const std::string& codeUE) ;
             static void libererTout() ;
 

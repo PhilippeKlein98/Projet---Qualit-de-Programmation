@@ -6,39 +6,41 @@
 
 namespace gestionUE{
 
-class formation
-{
-    public:
-        formation(std::string intituleFormation);
+    class formation
+    {
+        public:
+            formation(std::string intituleFormation);
 
-        std::string intituleFormation() const;
-        int totalCreditECTS() const;
+            std::string intituleFormation() const;
+            int totalCreditECTS() const;
 
-	void ajouterMaquette(maquette* m);
-	void supprimerDerniereMaquette();
-
-
-
-        maquette* operator[](unsigned int i) const;
-        maquette* operator[](unsigned int i);
-
-        void afficher(std::ostream& ost) const;
-
-	static std::vector<formation*> listeFormations;
-	static void ajouterFormation(formation* f);
-	static void supprimerFormation(std::string &intituleFormation);
-	static formation* rechercheFormation(const std::string &intituleFormation);
-
-    static void afficherToutesLesFormations(std::ostream& ost);
-    static void sauverTout(std::ofstream& ofst);
+            void ajouterMaquette(maquette* m);
+            void supprimerDerniereMaquette();
 
 
-    private:
-        std::string d_intituleFormation;
-        std::vector<maquette*> d_maquettes;
+
+            maquette* operator[](unsigned int i) const;
+            maquette* operator[](unsigned int i);
+
+            void afficher(std::ostream& ost) const;
+
+            static std::vector<formation*> listeFormations;
+            static void ajouterFormation(formation* f);
+            static void supprimerFormation(std::string &intituleFormation);
+            static formation* rechercheFormation(const std::string &intituleFormation);
+
+            static void afficherToutesLesFormations(std::ostream& ost);
+            static void sauverTout();
+            static void libererTout() ;
+            static void chargerTout() ;
 
 
-};
+        private:
+            std::string d_intituleFormation;
+            std::vector<maquette*> d_maquettes;
+
+
+    };
 
 std::ostream& operator<<(std::ostream& ost, formation& f);
 

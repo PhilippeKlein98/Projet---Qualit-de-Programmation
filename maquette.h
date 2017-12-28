@@ -12,8 +12,8 @@ namespace gestionUE
     public:
         static long unsigned int identifiantSuivant;
         static std::vector<maquette*> listeMaquette;
-        static void sauverTout(std::ofstream& fout);
-        static void chargerTout(std::ifstream& fin);
+        static void sauverTout();
+        static void chargerTout();
         static void libererTout();
 
     public:

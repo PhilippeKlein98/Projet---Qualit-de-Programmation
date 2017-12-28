@@ -1,5 +1,5 @@
 #include "maquette.h"
-
+#include "global.h"
 
 namespace gestionUE
 {
@@ -15,8 +15,9 @@ namespace gestionUE
         listeMaquette.push_back(this);
     }
 
-    void maquette::sauverTout(std::ofstream& fout)
+    void maquette::sauverTout()
     {
+        std::ofstream fout {FICHIER_MAQUETTE.c_str()} ;
         fout << identifiantSuivant;
         for(const maquette* maq : listeMaquette)
         {
@@ -25,8 +26,9 @@ namespace gestionUE
         }
     }
 
-    void maquette::chargerTout(std::ifstream& fin)
+    void maquette::chargerTout()
     {
+        std::ifstream fin {FICHIER_MAQUETTE.c_str()} ;
         fin >> identifiantSuivant;
         while(!fin.eof())
         {
@@ -78,13 +80,13 @@ namespace gestionUE
 
     double maquette::nombreHeuresTotalEnTD() const
     {
-        double tot = 0;
+        double total = 0;
         for(UE* ue : d_listeUE)
         {
-            tot +=  ue->nombreHeuresTotalEnTD();
+            total +=  ue->nombreHeuresTotalEnTD();
         }
 
-        return tot;
+        return total;
     }
 
     int maquette::nombreHeuresTotal()const
