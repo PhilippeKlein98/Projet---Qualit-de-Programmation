@@ -15,6 +15,7 @@ namespace gestionUE
         static void sauverTout();
         static void chargerTout();
         static void libererTout();
+        static maquette* chercherMaquette(long unsigned int identifiantMaquette) ;
 
     public:
         maquette();
@@ -33,7 +34,6 @@ namespace gestionUE
         void supprimerUE(int index);
         void supprimerUE(const std::string& codeUE) ;
         void afficher(std::ostream& ost) const ;
-
         void sauver(std::ofstream& file) const;
 
     private:

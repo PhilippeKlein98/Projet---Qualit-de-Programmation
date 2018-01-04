@@ -8,7 +8,7 @@ namespace gestionUE{
 
     std::vector<formation*> formation::listeFormations;
 
-formation::formation(std::string intituleFormation) : d_intituleFormation{intituleFormation}, d_maquettes{}
+formation::formation(std::string intituleFormation) : d_intituleFormation{intituleFormation}, d_maquettes()
 {}
 
 
@@ -107,6 +107,35 @@ void formation::sauverTout()
             ofst << maquette->identifiant() <<  '\t';
 
         ofst << std::endl;
+    }
+}
+
+void formation::chargerTout()
+{
+    std::ifstream fin {FICHIER_FORMATION.c_str()} ;
+    while(!fin.eof())
+    {
+        std::string intitule ;
+        fin >> intitule ;
+        formation* form = new formation (intitule);
+
+        std::string informationsFormation;
+        std::getline(fin,informationsFormation);
+
+        std::istringstream iss(informationsFormation);
+
+        long unsigned int codesMaquettes ;
+        iss >> codesMaquettes;
+        while(!iss.eof())
+        {
+            maquette* nouvelleMaquette = maquette::chercherMaquette(codesMaquettes) ;
+            if (nouvelleMaquette)
+            {
+                form->d_maquettes.push_back(nouvelleMaquette) ;
+            }
+            iss >> codesMaquettes ;
+        }
+        listeFormations.push_back(form) ;
     }
 }
 

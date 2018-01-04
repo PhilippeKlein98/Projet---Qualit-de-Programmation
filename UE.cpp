@@ -62,6 +62,11 @@ namespace gestionUE
         }
     }
 
+    void UE::chargerTout()
+    {
+
+    }
+
     UE* UE::chercherUE(const std::string& codeUE)
     {
         unsigned int i = 0 ;

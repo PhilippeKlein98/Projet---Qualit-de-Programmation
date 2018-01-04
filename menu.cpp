@@ -28,8 +28,7 @@ namespace gestionUE{
 
     menu::~menu()
     {
-        sauverDonnees() ;
-        libererDonnees() ;
+
     }
 
     void menu::sauverDonnees() const
@@ -75,6 +74,8 @@ namespace gestionUE{
                     //menuUEs();
                     break;
                 case 0 :
+                    sauverDonnees() ;
+                    libererDonnees() ;
                     exit(0);
                 default :
                     cout << "Veuillez selectionner une option valide." << endl;

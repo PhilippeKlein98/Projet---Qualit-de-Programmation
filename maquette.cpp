@@ -60,6 +60,20 @@ namespace gestionUE
             delete maq;
     }
 
+    maquette* maquette::chercherMaquette(long unsigned int identifiantMaquette)
+    {
+        unsigned int i = 0 ;
+        while (i<listeMaquette.size() && listeMaquette[i]->identifiant() != identifiantMaquette)
+        {
+            ++i ;
+        }
+        if (i==listeMaquette.size())
+        {
+            return nullptr ;
+        }
+        return listeMaquette[i] ;
+    }
+
     long unsigned int maquette::identifiant()const
     {
         return d_identifiant;
@@ -190,6 +204,7 @@ namespace gestionUE
 
     void maquette::sauver(std::ofstream& file) const
     {
+        file << identifiant() << '\t' ;
         for(UE* ue : d_listeUE)
             file << ue->code() << '\t';
     }
