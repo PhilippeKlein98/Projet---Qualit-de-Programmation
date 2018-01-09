@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "formation.h"
-#include "menu.h"
+#include "programme.h"
 #include "matiere.h"
 #include "maquette.h"
 #include "UEsimple.h"
@@ -34,8 +34,8 @@ int main()
 
 
 
-    gestionUE::menu m{};
-    m.menuPrincipal();
+    gestionUE::programme p{};
+    p.menuPrincipal();
 
 
     return 0;
