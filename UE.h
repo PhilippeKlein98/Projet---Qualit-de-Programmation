@@ -14,6 +14,7 @@ namespace gestionUE
             static UE* chercherUE (const std::string& codeUE) ;
             static void sauverTout();
             static void chargerTout() ;
+            static void lireUE(unsigned int typeUE , std::ifstream& fin) ;
             static void supprimerUE(const std::string& codeUE) ;
             static void libererTout() ;
 

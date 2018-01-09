@@ -1,6 +1,11 @@
 #include "UE.h"
+#include "UEsimple.h"
+#include "UEcomposee.h"
+#include "UEchoix.h"
 #include "global.h"
 #include "maquette.h"
+#include "windows.h"
+#include "matiere.h"
 
 namespace gestionUE
 {
@@ -62,9 +67,65 @@ namespace gestionUE
         }
     }
 
+    void UE::lireUE(unsigned int typeUE , std::ifstream& fin)
+    {
+        switch (typeUE)
+        {
+            int ects ;
+            case UE_SIMPLE :
+            {
+
+                std::string codeMatiere ;
+                fin >> ects >> codeMatiere ;
+                UEsimple* ueSimple = new UEsimple{ects,codeMatiere} ;
+                listeUE.push_back(ueSimple) ;
+                break ;
+            }
+            case UE_COMPOSEE :
+            {
+                std::string intituleUE , codeUE , codeMatiere ;
+                int coefficientUE , nombreMatieres ;
+                fin >> ects >> intituleUE >> codeUE >> coefficientUE >> nombreMatieres ;
+                std::vector<matiere*> listeMatiere (nombreMatieres) ;
+
+                for (int i=0 ; i<nombreMatieres ; i++)
+                {
+                    fin >> codeMatiere ;
+                    listeMatiere[i] = matiere::chercherMatiere(codeMatiere) ;
+                }
+
+                listeUE.push_back(new UEcomposee{intituleUE,codeUE,coefficientUE,ects,listeMatiere}) ;
+                break ;
+            }
+            case UE_CHOIX :
+            {
+                std::string intituleUE , codeUEchoix , codeUE ;
+                int coefficientUE , nombreUes ;
+                fin >> ects >> intituleUE >> codeUEchoix >> coefficientUE >> nombreUes ;
+                std::vector<UE*> listeUes (nombreUes) ;
+                UEchoix* nouvelleUEchoix = new UEchoix{codeUEchoix,coefficientUE,ects,intituleUE} ;
+                for (int i=0 ; i<nombreUes ; i++)
+                {
+                    fin >> codeUE ;
+                    nouvelleUEchoix->ajouterUE(codeUE) ;
+                }
+
+                listeUE.push_back(nouvelleUEchoix) ;
+                break ;
+            }
+        }
+    }
+
     void UE::chargerTout()
     {
-
+        std::ifstream fin{FICHIER_UE.c_str()} ;
+        unsigned int typeUE ;
+        fin >> typeUE ;
+        while (!fin.eof())
+        {
+            lireUE(typeUE,fin) ;
+            fin >> typeUE ;
+        }
     }
 
     UE* UE::chercherUE(const std::string& codeUE)

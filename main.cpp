@@ -15,9 +15,9 @@ int main()
 
     //creation matiere
     gestionUE::matiere::creerMatiere("13IUQUAM", "Qualite de programmation", 1, 12, 6, 6);
-    gestionUE::matiere::creerMatiere("13IUQUAM1", "Qualite de programmation 1", 1, 12, 6, 6);
-    gestionUE::matiere::creerMatiere("13IUQUAM2", "Qualite de programmation 2", 1, 12, 6, 6);
-    gestionUE::matiere::creerMatiere("13IUQUAM3", "Qualite de programmation 3", 1, 12, 6, 6);
+    gestionUE::matiere::creerMatiere("13IUQUAM1", "Qualite de programmation1", 1, 12, 6, 6);
+    gestionUE::matiere::creerMatiere("13IUQUAM2", "Qualite de programmation2", 1, 12, 6, 6);
+    gestionUE::matiere::creerMatiere("13IUQUAM3", "Qualite de programmation3", 1, 12, 6, 6);
 
     //creation UEsimple
     gestionUE::UEsimple u1{3, "13IUQUAM"};
@@ -35,6 +35,7 @@ int main()
 
 
     gestionUE::programme p{};
+
     p.menuPrincipal();
 
 

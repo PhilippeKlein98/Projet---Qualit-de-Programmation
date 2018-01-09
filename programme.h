@@ -10,7 +10,8 @@ class programme
         programme();
         ~programme();
         void menuPrincipal();
-		void menuFormations();
+    private:
+        void menuFormations();
 		//void menuMaquettes();
 		//void menuUEs();
 
@@ -20,9 +21,6 @@ class programme
 		int verifieEtRenvoieSaisieEntier(const std::string& message) const;
 		std::string verifieEtRenvoieSaisieChaineDeCaractere(const std::string& message) const;
 		bool saisieReussie() const;
-
-    private:
-
 };
 
 }

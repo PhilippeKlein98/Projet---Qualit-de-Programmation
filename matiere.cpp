@@ -105,7 +105,7 @@ namespace gestionUE
         std::ifstream fin{FICHIER_MATIERE.c_str()} ;
         std::string code , nom ;
         int coefficient , heuresCM , heuresTD , heuresTP ;
-        listeMatieres.clear() ;
+        //listeMatieres.clear() ;
         fin >> code >> nom >> coefficient >> heuresCM >> heuresTD >> heuresTP ;
         while (!fin.eof())
         {

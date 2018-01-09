@@ -13,7 +13,7 @@ namespace gestionUE
     class UEcomposee : public UE
     {
         public:
-            UEcomposee(const std::string & intitule, const std::string & code, int coefficient, int ECTS, const std::vector<matiere*> & listMatieres);
+            UEcomposee(const std::string & intitule, const std::string & code, int coefficient, int ECTS, const std::vector<matiere*> & listeMatieres);
 
             virtual std::string intitule() const override ;
             virtual std::string code() const override ;

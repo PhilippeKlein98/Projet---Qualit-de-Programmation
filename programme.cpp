@@ -35,8 +35,8 @@ namespace gestionUE{
     {
         matiere::sauverTout() ;
         UE::sauverTout() ;
-        maquette::sauverTout() ;
-        formation::sauverTout() ;
+        //maquette::sauverTout() ;
+        //formation::sauverTout() ;
     }
 
     void programme::libererDonnees() const
