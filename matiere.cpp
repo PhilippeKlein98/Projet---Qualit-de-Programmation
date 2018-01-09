@@ -17,7 +17,7 @@ namespace gestionUE
 
     double matiere::nombreHeuresTotalEnTD() const
     {
-        return d_nombreHeuresTD + d_nombreHeuresCM * CM_VERS_TD + d_nombreHeuresTP * TP_VERS_TD;
+        return d_nombreHeuresCM * CM_VERS_TD + d_nombreHeuresTD + d_nombreHeuresTP * TP_VERS_TD;
     }
 
     int matiere::nombreHeuresCM()const
@@ -106,10 +106,11 @@ namespace gestionUE
         std::string code , nom ;
         int coefficient , heuresCM , heuresTD , heuresTP ;
         listeMatieres.clear() ;
+        fin >> code >> nom >> coefficient >> heuresCM >> heuresTD >> heuresTP ;
         while (!fin.eof())
         {
-            fin >> code >> nom >> coefficient >> heuresCM >> heuresTD >> heuresTP ;
             creerMatiere(code, nom, coefficient, heuresCM, heuresTD, heuresTP) ;
+            fin >> code >> nom >> coefficient >> heuresCM >> heuresTD >> heuresTP ;
         }
     }
 
@@ -154,6 +155,7 @@ namespace gestionUE
         {
             delete m ;
         }
+        listeMatieres.resize(0) ;
     }
 
     void matiere::creerMatiere(const std::string& code , const std::string& nom , int coefficient , int heuresCM , int heuresTD , int heuresTP)

@@ -58,6 +58,7 @@ namespace gestionUE
     {
         for(maquette* maq : listeMaquette)
             delete maq;
+        listeMaquette.resize(0) ;
     }
 
     maquette* maquette::chercherMaquette(long unsigned int identifiantMaquette)

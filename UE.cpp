@@ -87,5 +87,6 @@ namespace gestionUE
         {
             delete ue ;
         }
+        listeUE.resize(0) ;
     }
 }
