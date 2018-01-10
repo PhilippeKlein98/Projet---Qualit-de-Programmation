@@ -1,6 +1,7 @@
 #include "catch.hpp"
 #include "matiere.h"
 #include "global.h"
+#include <fstream>
 
 TEST_CASE("Tests sur la classe matiere", "[matiere]")
 {
@@ -37,6 +38,49 @@ TEST_CASE("Tests sur la classe matiere", "[matiere]")
         double heuresTotalEnTD = heuresCM * gestionUE::CM_VERS_TD + heuresTD + heuresTP * gestionUE::TP_VERS_TD;
 
         REQUIRE(gestionUE::matiere::listeMatieres[taille]->nombreHeuresTotalEnTD() == heuresTotalEnTD);
+    }
+
+    SECTION("Tests des modifications de la matiere", "[matiere]")
+    {
+        std::string code2 = "987654321";
+        std::string nom2 = "Test";
+        int coefficient2 = 1;
+        int heuresCM2 = 4;
+        int heuresTD2 = 5;
+        int heuresTP2 = 6;
+
+        gestionUE::matiere::listeMatieres[taille]->modifierCode(code2);
+        gestionUE::matiere::listeMatieres[taille]->modifierNom(nom2);
+        gestionUE::matiere::listeMatieres[taille]->modifierHeuresCM(heuresCM2);
+        gestionUE::matiere::listeMatieres[taille]->modifierHeuresTD(heuresTD2);
+        gestionUE::matiere::listeMatieres[taille]->modifierHeuresTP(heuresTP2);
+        gestionUE::matiere::listeMatieres[taille]->modifierCoefficient(coefficient2);
+
+        REQUIRE(gestionUE::matiere::listeMatieres[taille]->code() == code2);
+        REQUIRE(gestionUE::matiere::listeMatieres[taille]->nom() == nom2);
+        REQUIRE(gestionUE::matiere::listeMatieres[taille]->coefficient() == coefficient2);
+        REQUIRE(gestionUE::matiere::listeMatieres[taille]->nombreHeuresCM() == heuresCM2);
+        REQUIRE(gestionUE::matiere::listeMatieres[taille]->nombreHeuresTD() == heuresTD2);
+        REQUIRE(gestionUE::matiere::listeMatieres[taille]->nombreHeuresTP() == heuresTP2);
+    }
+
+    SECTION("Test sauvegarde d'une seul matiere", "[matiere]")
+    {
+        std::string fichier_matiere_test = "matiere_test.txt";
+        std::ofstream fout{fichier_matiere_test.c_str()};
+
+        gestionUE::matiere::listeMatieres[taille]->sauver(fout);
+    }
+
+    SECTION("Test de la recherche d'une matiere", "[matiere]")
+    {
+        REQUIRE(gestionUE::matiere::chercherMatiere(code) == gestionUE::matiere::listeMatieres[taille]);
+    }
+
+    SECTION("Test de la suppression de la matiere", "[matiere]")
+    {
+        gestionUE::matiere::supprimerMatiere(code);
+        REQUIRE(gestionUE::matiere::chercherMatiere(code) == nullptr);
     }
 
     gestionUE::matiere::libererTout();
