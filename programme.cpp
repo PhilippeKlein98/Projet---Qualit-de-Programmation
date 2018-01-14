@@ -68,7 +68,7 @@ namespace gestionUE{
                     menuFormations();
                     break;
                 case 2 :
-                    //menuMaquettes();
+                    menuMaquettes();
                     break;
                 case 3 :
                     //menuUEs();
@@ -90,8 +90,8 @@ namespace gestionUE{
         system("cls");
         int i;
         cout << "Gestionnaire de formations : " << endl;
-        cout << "1. Afficher toutes les formations" << endl;
-        cout << "2. Afficher une formation" << endl;
+        cout << "1. Afficher la liste des formations" << endl;
+        cout << "2. Afficher en detail une formation" << endl;
         cout << "3. Ajouter une formation" << endl;
         cout << "0. Retour" << endl;
 
@@ -118,7 +118,68 @@ namespace gestionUE{
                     }
                     break;
                 case 3 :
-                    // to do
+                    {
+                        std::string titreFormation = verifieEtRenvoieSaisieChaineDeCaractere("Entrer le nom de la nouvelle formation: ");
+                        formation* nouvelleFormation = new formation{titreFormation};
+                        cout << nouvelleFormation->intituleFormation() << " a bien ete creee" << endl;
+                        formation::ajouterFormation(nouvelleFormation);
+                        system("PAUSE");
+                        menuFormations();
+                    }
+                    break;
+                case 0 :
+                    menuPrincipal();
+                    break;
+                default :
+                    cout << "Veuillez selectionner une option valide." << endl;
+            }
+        }
+        while( i != 0 && i != 1 && i != 2 && i != 3 );
+    }
+
+
+        void programme::menuMaquettes()
+    {
+        system("title Gestion des maquettes");
+        system("cls");
+        int i;
+        cout << "Gestionnaire de formations : " << endl;
+        cout << "1. Creer une nouvelle maquette" << endl;
+        cout << "2. Modifier une maquette" << endl;
+        cout << "3. Supprimer une maquette //TODO" << endl;
+        cout << "0. Retour" << endl;
+
+        do
+        {
+            i = verifieEtRenvoieSaisieEntier("Choix: ");
+            switch(i)
+            {
+                case 1 :
+                    //
+                    system("PAUSE");
+                    menuMaquettes();
+                    break;
+                case 2 :
+                    {
+                        std::string titreFormation = verifieEtRenvoieSaisieChaineDeCaractere("Entrer le nom d'une formation: ");
+                        formation* elem = formation::rechercheFormation(titreFormation);
+                        int numSemestre = verifieEtRenvoieSaisieEntier("Quelle maquette souhaitez-vous modifier (numero du semestre) ? //TODO");
+                        //maquette* maquetteAModifier = (*elem)[numSemestre];
+                        //cout << maquetteAModifier->totalCreditECTS() << endl;
+
+                        system("PAUSE");
+                        menuMaquettes();
+
+                    }
+                    break;
+                case 3 :
+                    {
+                        std::string titreFormation = verifieEtRenvoieSaisieChaineDeCaractere("Entrer le nom d'une formation: ");
+                        formation* elem = formation::rechercheFormation(titreFormation);
+                        int numSemestre = verifieEtRenvoieSaisieEntier("Quelle maquette souhaitez-vous supprimer (numero du semestre) ? //TODO");
+                        system("PAUSE");
+                        menuMaquettes();
+                    }
                     break;
                 case 0 :
                     menuPrincipal();
