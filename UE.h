@@ -12,6 +12,7 @@ namespace gestionUE
         public:
             static std::vector<UE*> listeUE ;
             static UE* chercherUE (const std::string& codeUE) ;
+            static void afficherToutesLesUE(std::ostream& ost);
             static void sauverTout();
             static void chargerTout() ;
             static void lireUE(unsigned int typeUE , std::ifstream& fin) ;
