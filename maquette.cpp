@@ -168,9 +168,10 @@ namespace gestionUE
 
     void maquette::supprimerUE(int index)
     {
+        delete d_listeUE[index];
         for(int i=index; i<d_listeUE.size()-1; i++)
         {
-            d_listeUE[index] = d_listeUE[index+1];
+            d_listeUE[i] = d_listeUE[i+1];
         }
 
         d_listeUE.pop_back();
