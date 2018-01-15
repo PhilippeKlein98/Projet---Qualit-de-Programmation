@@ -30,6 +30,17 @@ void formation::ajouterMaquette(maquette* m)
 	d_maquettes.push_back(m);
 }
 
+void formation::supprimerMaquette(int index)
+{
+        delete d_maquettes[index];
+        for(int i=index; i<d_maquettes.size()-1; i++)
+        {
+            d_maquettes[i] = d_maquettes[i+1];
+        }
+
+        d_maquettes.pop_back();
+}
+
 void formation::supprimerDerniereMaquette()
 {
 	d_maquettes.pop_back();
@@ -37,12 +48,12 @@ void formation::supprimerDerniereMaquette()
 
  maquette* formation::operator[](unsigned int i) const
  {
-	return ((d_maquettes.size()>i) ? nullptr : d_maquettes[i]);
+	return (((d_maquettes.size()-1)>i) ? nullptr : d_maquettes[i]);
  }
 
   maquette* formation::operator[](unsigned int i)
  {
-	return ((d_maquettes.size()>i) ? nullptr : d_maquettes[i]);
+	return (((d_maquettes.size()-1)>i) ? nullptr : d_maquettes[i]);
  }
 
  void formation::afficher(std::ostream& ost) const
