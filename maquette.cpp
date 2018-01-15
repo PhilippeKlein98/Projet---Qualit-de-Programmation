@@ -8,7 +8,7 @@ namespace gestionUE
 
     std::vector<maquette*> maquette::listeMaquette;
 
-    maquette:: maquette(): d_identifiant{identifiantSuivant++} {}
+    maquette:: maquette(): maquette{identifiantSuivant++} {}
 
     maquette::maquette(unsigned int identifiant) : d_identifiant{identifiant}, d_listeUE{}
     {
