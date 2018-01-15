@@ -36,6 +36,18 @@ namespace gestionUE
         ost << code() << "\t" << coefficient() << "\t" << ECTS() << "\t" << "UE " ;
     }
 
+    void UE::afficherToutesLesUE(std::ostream& ost)
+    {
+        ost << "========================================" << std::endl;
+
+        for (auto ue : listeUE)
+        {
+            ue->afficher(ost);
+        }
+
+        ost << "========================================" << std::endl;
+    }
+
     void UE::supprimerUE(const std::string& codeUE)
     {
         unsigned int i=0 ;
