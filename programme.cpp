@@ -71,7 +71,7 @@ namespace gestionUE{
                     menuMaquettes();
                     break;
                 case 3 :
-                    //menuUEs();
+                    menuUE();
                     break;
                 case 0 :
                     sauverDonnees() ;
@@ -139,14 +139,13 @@ namespace gestionUE{
 
 
         void programme::menuMaquettes()
-    {
+        {
         system("title Gestion des maquettes");
         system("cls");
         int i;
         cout << "Gestionnaire de formations : " << endl;
-        cout << "1. Creer une nouvelle maquette" << endl;
-        cout << "2. Modifier une maquette" << endl;
-        cout << "3. Supprimer une maquette //TODO" << endl;
+        cout << "1. Modifier une maquette" << endl;
+        cout << "2. Supprimer une maquette" << endl;
         cout << "0. Retour" << endl;
 
         do
@@ -155,28 +154,57 @@ namespace gestionUE{
             switch(i)
             {
                 case 1 :
-                    //
-                    system("PAUSE");
-                    menuMaquettes();
-                    break;
-                case 2 :
                     {
                         std::string titreFormation = verifieEtRenvoieSaisieChaineDeCaractere("Entrer le nom d'une formation: ");
                         formation* elem = formation::rechercheFormation(titreFormation);
-                        int numSemestre = verifieEtRenvoieSaisieEntier("Quelle maquette souhaitez-vous modifier (numero du semestre) ? //TODO");
-                        //maquette* maquetteAModifier = (*elem)[numSemestre];
-                        //cout << maquetteAModifier->totalCreditECTS() << endl;
+
+                        int numSemestre = verifieEtRenvoieSaisieEntier("Quelle maquette souhaitez-vous modifier (numero du semestre) ? ");
+                        maquette* maquetteAModifier = (*elem).operator[](numSemestre-1);
+                        maquetteAModifier->afficher(std::cout);
+
+                        int positionUEAModifier = verifieEtRenvoieSaisieEntier("Quelle UE a modifier ou supprimer (position dans la liste) ? ");
+                        UE* UEAModifier = (*maquetteAModifier).operator[](positionUEAModifier-1);
+                        UEAModifier->afficher(std::cout);
+
+                        int choixAction = verifieEtRenvoieSaisieEntier("Souhaitez-vous supprimer (1) ou modifier (TODO) cette UE ? ");
+
+                        do{
+                            switch(choixAction)
+                            {
+                                case 1:
+                                    maquetteAModifier->supprimerUE(positionUEAModifier-1);
+                                    cout << "L'UE a bien ete supprimee" << endl;
+                                    maquetteAModifier->afficher(cout);
+                                    break;
+                                case 2:
+                                    //TODO
+                                    break;
+                                default:
+                                    cout << "Veuillez selectionner une option valide." << endl;
+
+                            }
+                        }
+                        while(choixAction != 1 && choixAction != 2);
 
                         system("PAUSE");
                         menuMaquettes();
 
                     }
                     break;
-                case 3 :
+                case 2 :
                     {
                         std::string titreFormation = verifieEtRenvoieSaisieChaineDeCaractere("Entrer le nom d'une formation: ");
                         formation* elem = formation::rechercheFormation(titreFormation);
-                        int numSemestre = verifieEtRenvoieSaisieEntier("Quelle maquette souhaitez-vous supprimer (numero du semestre) ? //TODO");
+
+                        int numSemestre = verifieEtRenvoieSaisieEntier("Quelle maquette souhaitez-vous supprimer (numero du semestre) ?");
+                        maquette* maquetteASupprimer = (*elem).operator[](numSemestre-1);
+                        maquetteASupprimer->afficher(cout);
+
+                        elem->supprimerMaquette(numSemestre-1);
+
+                        cout << "La maquette a bien ete supprimee" << endl;
+                        cout << *elem;
+
                         system("PAUSE");
                         menuMaquettes();
                     }
@@ -188,7 +216,38 @@ namespace gestionUE{
                     cout << "Veuillez selectionner une option valide." << endl;
             }
         }
-        while( i != 0 && i != 1 && i != 2 && i != 3 );
+        while( i != 0 && i != 1 && i != 2);
+    }
+
+
+    void programme::menuUE()
+    {
+        system("title Gestion des UE");
+        system("cls");
+        int i;
+        cout << "Gestionnaire d'UE : " << endl;
+        cout << "1. Afficher toutes les UE" << endl;
+        cout << "0. Retour" << endl;
+
+        do
+        {
+            i = verifieEtRenvoieSaisieEntier("Choix: ");
+            switch(i)
+            {
+                case 1 :
+                    UE::afficherToutesLesUE(cout);
+                    system("PAUSE");
+                    menuUE();
+                    break;
+
+                case 0 :
+                    menuPrincipal();
+                    break;
+                default :
+                    cout << "Veuillez selectionner une option valide." << endl;
+            }
+        }
+        while( i != 0 && i != 1);
     }
 
 
