@@ -13,7 +13,7 @@ class programme
     private:
         void menuFormations();
 		void menuMaquettes();
-		//void menuUEs();
+		void menuUE();
 
         void chargerDonnees() const ;
         void sauverDonnees() const ;
