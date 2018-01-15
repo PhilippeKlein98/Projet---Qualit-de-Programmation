@@ -39,6 +39,10 @@ namespace gestionUE
 
     bool  UEsimple::contientMatiere(const std::string& codeMatiere) const
     {
+        if(d_matiere == nullptr)
+        {
+            return false;
+        }
         return d_matiere->code()  == codeMatiere ;
     }
 
